@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "homes#top"
   get "answer", to: "homes#answer"
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
     get "follwers", to: "relationships#follwers", as: "follwers"
     get "posts/:id/liles", to: "users#likes"
   end
-  
+
   resources :post, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
     resources :post_comments, only: [:create, :destroy]
     resource :liles, only: [:create, :destroy]
