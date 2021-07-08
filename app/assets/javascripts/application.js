@@ -17,3 +17,12 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+/*global $*/
+
+// 貯金診断ページのカウント
+$(function() {
+    $('input:checkbox').change(function() {
+        let cnt = $('#checkList input:checkbox:checked').length;
+        $('div.total').text('選択：' + cnt + '個');
+    }).trigger('change');
+});
