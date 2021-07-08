@@ -1,0 +1,8 @@
+<div class="post-body">
+  <%= attachment_image_tag @post, :image %>
+  <p>投稿内容：<%= @post.introduction %></p>
+  <p>ユーザーネーム：<%= @post.user.name %></p>
+  <% if @post.user == current_user %>
+    <%= link_to '削除', post_path(@post), method: :delete %>
+  <% end %>
+</div>
