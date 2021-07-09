@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <%= form_with model: @user, local:true do |f| %>
+    <div class="col">
+      <div class="row">
+        <div class="col-4"><%= link_to '', user_path(@user.id), class: 'fas fa-times fa-2x' %></div>
+        <div class="col-4"><h4>プロフィールを編集</h4></div>
+        <div class="col-4"><%= f.submit '保存', class: 'btn btn-primary' %></div>
+      </div>
+      <div class="row"><%= attachment_image_tag @user, :profile_image_id, :fill, 100, 100, fallback: "no_image.jpg", size: "100x100" %></div>
+      <div class="row"><%= f.attachment_field :profile_image, placeholder: "image" %></div>
+      <div class="row"><label for="inputName">名前</label></div>
+      <div class="row"><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %></div>
+      <div class="row"><label for="inputIntroduction">紹介文</label></div>
+      <div class="row"><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"紹介文" %></div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<h1>新規投稿フォーム</h1>
+<%= form_with model: @post, local:true do |f| %>
+  <h4>内容</h4>
+  <%= f.text_area :introduction, placeholder: "金融リテラシーをあげていきましょう！", size: "30x5", class: "form-control" %>
+  <h4>画像</h4>
+  <%= f.attachment_field :image %>
+  <%= f.submit '投稿' %>
+<% end %>

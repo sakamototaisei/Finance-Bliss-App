@@ -15,21 +15,6 @@ class HomesController < ApplicationController
   def investment
   end
   
-  def time
-  end
-  
-  def margin
-  end
-  
-  def cut
-  end
-  
-  def results
-  end
-  
-  def regular
-  end
-  
   def trust
   end
   
