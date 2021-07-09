@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   has_many :posts, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -15,4 +15,6 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follow
   # 自分がフォローしている人一覧で返す
   has_many :followings, through: :relationships, source: :follower
+
+  attachment :profile_image
 end
