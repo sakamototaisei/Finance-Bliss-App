@@ -1,16 +1,44 @@
 <div class="contaoner">
-  <div class="col-3">
-    <%= link_to 'ホーム', posts_path, class: 'btn btn-primary' %><br>
-    <%= link_to 'プロフィール', user_path, class: 'btn btn-primary' %><br>
-    <%= link_to '投資先診断', investment_path, class: 'btn btn-primary' %><br>
-    <%= link_to '新規投稿', new_post_path, class: 'btn btn-primary' %>
-  </div>
-  <div class="col-6">
-    <div class="">
-      <!--%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>-->
+  <div class="row">
+    <div class="col-3">
+      <%= link_to 'ホーム', posts_path, class: 'btn btn-primary' %><br>
+      <%= link_to 'プロフィール', user_path(current_user), class: 'btn btn-primary' %><br>
+      <%= link_to '投資先診断', investment_path, class: 'btn btn-primary' %><br>
+      <%= link_to '新規投稿', new_post_path, class: 'btn btn-primary' %>
     </div>
-  </div>
-  <div class="col-3">
+    <div class="col-6">
+      <div class="row my-5">
+        <div class="col-4"><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></div>
+        <div class="col-4"><%= @user.name %></div>
+        <div class="col-4"><%= link_to 'プロフィールの編集', edit_user_path(@user.id), class: 'btn btn-primary' %></div>
+      </div>
+      <div class="row mt-3 mb-5"><%= @user.introduction %></div>
+      <div class="row mb-3">
+        <div class="col"><h6>フォロー中</h6></div>
+        <div class="col"><h6>フォロワー</h6></div>
+      </div>
+      <div class="row">
+        <ul class="user-tabs">
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
 
+
+      <!--ログインユーザーが投稿した一覧-->
+      <% @posts.each do |post| %>
+      <div class="row">
+        <div class="col">
+          <p>投稿ユーザー画像：<%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size: "50x50" %></p>
+          <%= attachment_image_tag post, :image, format:'jpg', size: "100x100"%>
+          <p>投稿内容：<%= link_to post.introduction, post_path(post.id) %></p>
+          <p>ユーザーネーム：<%= post.user.name %></p>
+          <hr>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-3">
+    </div>
   </div>
 </div>

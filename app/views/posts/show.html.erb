@@ -1,8 +1,9 @@
 <div class="post-body">
-  <%= attachment_image_tag @post, :image %>
+  <%= attachment_image_tag @post, :image, format:'jpg', size: "200x200" %>
   <p>投稿内容：<%= @post.introduction %></p>
   <p>ユーザーネーム：<%= @post.user.name %></p>
   <% if @post.user == current_user %>
-    <%= link_to '削除', post_path(@post), method: :delete %>
+    <%= link_to '', post_path(@post), class: 'fas fa-trash-alt fa-2x', method: :delete, "data-confirm" => "本当に消しますか？" %>
+    <%= link_to '', edit_post_path(@post.id), class: 'fas fa-cog fa-2x' %>
   <% end %>
 </div>
