@@ -1,8 +1,34 @@
-<% @posts.each do |post| %>
-<div>
-  <p>投稿ユーザー画像：<%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size: "50x50" %></p>
-  <%= attachment_image_tag post, :image, format:'jpg', size: "100x100"%>
-  <p>投稿内容：<%= link_to post.introduction, post_path(post.id) %></p>
-  <p>ユーザーネーム：<%= post.user.name %></p>
-</div>
-<% end %>
+<div class="contaoner">
+  <div class="row my-5">
+    <div class="col-3">
+      <%= link_to 'ホーム', posts_path, class: 'btn btn-primary' %><br>
+      <%= link_to 'プロフィール', user_path(current_user), class: 'btn btn-primary' %><br>
+      <%= link_to '投資先診断', investment_path, class: 'btn btn-primary' %><br>
+      <%= link_to '新規投稿', new_post_path, class: 'btn btn-primary' %>
+    </div>
+    <div class="col-6">
+      <% @posts.each do |post| %>
+      <div class="row">
+        <div class="col-2"><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+        <div class="col-2"><%= post.user.name %></div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10"><%= attachment_image_tag post, :image, format:'jpg', size: "550x400"%></div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10"><%= link_to post.introduction, post_path(post.id) %></div>
+      </div>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3">コメント</div>
+        <div class="col-3">いいね</div>
+        <div class="col-3"></div>
+      </div>
+      <hr>
+      <% end %>
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
