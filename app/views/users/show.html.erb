@@ -60,7 +60,21 @@
       <div class="row">
         <div class="col-3"></div>
         <div class="col-3">コメント</div>
-        <div class="col-3">いいね</div>
+        <div class="col-3">
+          <% if post.liked_by?(current_user) %>
+          <p>
+            <%= link_to post_likes_path(post), method: :delete do %>
+              ❤ <%= post.likes.count %>
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to post_likes_path(post), method: :post do %>
+              ♡ <%= post.likes.count %>
+            <% end %>
+          </p>
+          <% end %>
+        </div>
         <div class="col-3"></div>
       </div>
       <hr>

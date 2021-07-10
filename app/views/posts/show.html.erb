@@ -25,16 +25,14 @@
           <% if @post.liked_by?(current_user) %>
           <p>
             <%= link_to post_likes_path(@post), method: :delete do %>
-              ❤<%= @post.likes.count %>
+              ❤ <%= @post.likes.count %>
             <% end %>
-            いいね
           </p>
           <% else %>
           <p>
             <%= link_to post_likes_path(@post), method: :post do %>
-              ♡<%= @post.likes.count %>
+              ♡ <%= @post.likes.count %>
             <% end %>
-            いいね
           </p>
           <% end %>
         </div>
@@ -55,12 +53,14 @@
       </div>
       <% end %>
       <div class="row">
+        <div class="col-3"></div>
         <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-        <div class="col">
+        <div class="col-6">
           <%= f.text_area :comment, size: "30x5", placeholder: "コメントをここに" %>
           <%= f.submit "送信", class: 'btn btn-primary' %>
         </div>
         <% end %>
+        <div class="col-3"></div>
       </div>
     </div>
     <div class="col-3">

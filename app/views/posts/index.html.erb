@@ -18,17 +18,43 @@
       </div>
       <div class="row">
         <div class="col-2"></div>
-        <div class="col-10"><%= link_to post.introduction, post_path(post.id) %></div>
+        <div class="col-10 my-4"><%= link_to post.introduction, post_path(post.id) %></div>
       </div>
       <div class="row">
         <div class="col-3"></div>
-        <div class="col-3">コメント</div>
-        <div class="col-3">いいね</div>
+        <div class="col-3">
+          <i class="far fa-comment"></i> <%= post.post_comments.count %>
+        </div>
+        <div class="col-3">
+          <% if post.liked_by?(current_user) %>
+          <p>
+            <%= link_to post_likes_path(post), method: :delete do %>
+              ❤ <%= post.likes.count %>
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to post_likes_path(post), method: :post do %>
+              ♡ <%= post.likes.count %>
+            <% end %>
+          </p>
+          <% end %>
+        </div>
         <div class="col-3"></div>
       </div>
       <hr>
       <% end %>
     </div>
     <div class="col-3">
+      <div class="row">
+        <div class="col test-center mt-4">
+          <%= form_with url:search_path, method: :get, local: true do |f| %>
+            <%= f.text_field 'search[value]' %>
+            <%= f.select 'search[model]', options_for_select({ "User" => "user", "Post" => "post" }) %>
+            <%= f.select 'search[how]', options_for_select({ "キーワード" => "partical" }) %>
+            <%= f.submit :'検索' %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
