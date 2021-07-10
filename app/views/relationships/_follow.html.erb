@@ -7,7 +7,16 @@
       <%= link_to '新規投稿', new_post_path, class: 'btn btn-primary' %>
     </div>
     <div class="col-6">
-      <% @users.each do |user| %>
+        <div class="row">
+          <div class="col-2"><%= link_to '', user_path(user.id), class: 'fas fa-long-arrow-alt-left fa-3x' %></div>
+          <div class="col-2"><%= user.name %></div>
+        </div>
+        <div class="row my-4">
+          <div class="col-6 text-center">フォロワー</div>
+          <div class="col-6 text-center">フォロー中</div>
+        </div>
+      <% if users.exists? %>
+      <% users.each do |user| %>
       <div class="row">
         <div class="col-2"><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
         <div class="col-6">
@@ -26,6 +35,9 @@
         <% end %>
       </div>
       <hr>
+      <% end %>
+      <% else %>
+        <h2>ユーザーはまだいません</h2>
       <% end %>
     </div>
     <div class="col-3">

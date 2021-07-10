@@ -17,13 +17,13 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
     get "followings", to: "relationships#followings", as: "followings"
-    get "follwers", to: "relationships#follwers", as: "follwers"
+    get "followers", to: "relationships#followers", as: "followers"
     get "posts/:id/liles", to: "users#likes"
   end
 
   resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
     resources :post_comments, only: [:create, :destroy]
-    resource :liles, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
 
 
