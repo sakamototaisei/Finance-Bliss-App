@@ -2,14 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// フォロー周りの装飾
+.follow-count a {
+  color: #57575f;
+}
+
 // ユーザー詳細の投稿一覧いいね一覧の切り替え
+ul, li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 .user-tabs {
   margin-top: 40px;
   background-color: white;
   overflow: hidden;
-  box-shadow: 0 2px 6px #c1ced7;
 }
-
-.user-tqbs li.active {
-  
+.user-tabs li {
+  float: left;
+}
+.user-tabs li.active {
+  border-bottom: 2px solid #3ecdc6;
+}
+.user-tabs li.active a {
+  color: #57575f;
+}
+.user-tabs a {
+  display: inline-block;
+  padding: 16px 30px;
+  color: #afb6bf;
 }

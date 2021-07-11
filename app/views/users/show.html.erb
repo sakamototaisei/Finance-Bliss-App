@@ -25,12 +25,12 @@
       </div>
       <div class="row mt-3 mb-5"><%= @user.introduction %></div>
       <div class="row mb-3">
-        <div class="col">
+        <div class="col follow-count">
           <%= link_to user_followings_path(@user.id) do %>
           <h6>フォロー中 <%= @user.followings.count %></h6>
           <% end %>
         </div>
-        <div class="col">
+        <div class="col follow-count">
           <%= link_to user_followers_path(@user.id) do %>
           <h6>フォロワー <%= @user.followers.count %></h6>
           <% end %>
@@ -62,15 +62,11 @@
         <div class="col-3">
           <% if post.liked_by?(current_user) %>
           <p>
-            <%= link_to post_likes_path(post), method: :delete do %>
-              ❤ <%= post.likes.count %>
-            <% end %>
+            <%= link_to post.likes.count, post_likes_path(post), method: :delete, remote: true, class: "fas fa-heart" %>
           </p>
           <% else %>
           <p>
-            <%= link_to post_likes_path(post), method: :post do %>
-              ♡ <%= post.likes.count %>
-            <% end %>
+            <%= link_to post.likes.count, post_likes_path(post), method: :post, remote: true, class: "far fa-heart" %>
           </p>
           <% end %>
         </div>

@@ -21,20 +21,9 @@
       </div>
       <div class="row">
         <div class="col-3 text-right">コメント</div>
-        <div class="col-3 text-right">
-          <% if @post.liked_by?(current_user) %>
-          <p>
-            <%= link_to post_likes_path(@post), method: :delete do %>
-              ❤ <%= @post.likes.count %>
-            <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to post_likes_path(@post), method: :post do %>
-              ♡ <%= @post.likes.count %>
-            <% end %>
-          </p>
-          <% end %>
+        <div class="col-3 text-right like-btn<%= @post.id %>">
+          <!--いいねの非同期-->
+          <%= render partial: 'likes/like-btn', locals: {post: @post} %>
         </div>
         <% if @post.user == current_user %>
         <div class="col-3 text-right"><%= link_to '', post_path(@post), class: 'fas fa-trash-alt fa-2x', method: :delete, "data-confirm" => "本当に消しますか？" %></div>
