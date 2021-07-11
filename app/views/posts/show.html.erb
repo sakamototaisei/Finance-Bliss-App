@@ -21,8 +21,8 @@
       </div>
       <div class="row">
         <div class="col-3 text-right">コメント</div>
+        <!--いいねの非同期-->
         <div class="col-3 text-right like-btn<%= @post.id %>">
-          <!--いいねの非同期-->
           <%= render partial: 'likes/like-btn', locals: {post: @post} %>
         </div>
         <% if @post.user == current_user %>
@@ -31,25 +31,12 @@
         <% end %>
       </div>
       <hr>
-      <% @post.post_comments.each do |post_comment| %>
-      <div class="row my-4">
-        <div class="col-2"><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
-        <div class="col-8">
-          <div class="row"><%= post_comment.user.name %></div>
-          <div class="row"><%= post_comment.comment %></div>
-        </div>
-        <div class="col-2"><%= link_to '', post_post_comment_path(post_comment.post, post_comment), class: 'fas fa-trash-alt fa-2x', method: :delete, "data-confirm" => "本当に消しますか？" %></div>
+      <!--コメントの非同期化-->
+      <div class="col" id="comments_area">
+        <%= render partial: 'post_comments/comment', locals: {post: @post} %>
       </div>
-      <% end %>
       <div class="row">
-        <div class="col-3"></div>
-        <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-        <div class="col-6">
-          <%= f.text_area :comment, size: "30x5", placeholder: "コメントをここに" %>
-          <%= f.submit "送信", class: 'btn btn-primary' %>
-        </div>
-        <% end %>
-        <div class="col-3"></div>
+        <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: @post_comment } %>
       </div>
     </div>
     <div class="col-3">

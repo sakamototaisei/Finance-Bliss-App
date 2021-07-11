@@ -59,16 +59,9 @@
       <div class="row">
         <div class="col-3"></div>
         <div class="col-3">コメント</div>
-        <div class="col-3">
-          <% if post.liked_by?(current_user) %>
-          <p>
-            <%= link_to post.likes.count, post_likes_path(post), method: :delete, remote: true, class: "fas fa-heart" %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to post.likes.count, post_likes_path(post), method: :post, remote: true, class: "far fa-heart" %>
-          </p>
-          <% end %>
+        <!--いいねの非同期化-->
+        <div class="col-3 like-btn<%= post.id %>">
+          <%= render partial: 'likes/like-btn', locals: {post: post} %>
         </div>
         <div class="col-3"></div>
       </div>
