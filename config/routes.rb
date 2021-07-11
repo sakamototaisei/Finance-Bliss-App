@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy]
     get "followings", to: "relationships#followings", as: "followings"
     get "followers", to: "relationships#followers", as: "followers"
-    get "posts/:id/liles", to: "users#likes"
+    get "posts/:id/liles", to: "users#likes", as: "likes"
   end
 
   resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy] do

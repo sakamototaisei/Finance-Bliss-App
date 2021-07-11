@@ -1,0 +1,84 @@
+<div class="contaoner">
+  <div class="row my-5">
+    <!--サイドバー一覧-->
+    <div class="col-3">
+      <%= link_to 'ホーム', posts_path, class: 'btn btn-primary' %><br>
+      <%= link_to 'プロフィール', user_path(current_user), class: 'btn btn-primary' %><br>
+      <%= link_to '投資先診断', investment_path, class: 'btn btn-primary' %><br>
+      <%= link_to '新規投稿', new_post_path, class: 'btn btn-primary' %>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-4"><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "100x100" %></div>
+        <div class="col-4"><%= @user.name %></div>
+        <% if @user.id == current_user.id %>
+          <div class="col-4"><%= link_to 'プロフィールの編集', edit_user_path(@user.id), class: 'btn btn-primary' %></div>
+        <% else %>
+          <div class="col-4">
+            <% if current_user.following?(@user) %>
+              <%= link_to "フォロー中", user_relationships_path(@user.id), method: :delete, class: "btn btn-info" %>
+            <% else %>
+              <%= link_to "フォロー", user_relationships_path(@user.id), method: :post, class: "btn btn-success" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="row mt-3 mb-5"><%= @user.introduction %></div>
+      <div class="row mb-3">
+        <div class="col">
+          <%= link_to user_followings_path(@user.id) do %>
+          <h6>フォロー中 <%= @user.followings.count %></h6>
+          <% end %>
+        </div>
+        <div class="col">
+          <%= link_to user_followers_path(@user.id) do %>
+          <h6>フォロワー <%= @user.followers.count %></h6>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <ul class="user-tabs">
+          <li><%= link_to "投稿", user_path(@user.id) %></li>
+          <li class="active"><%= link_to "いいね", user_likes_path(@user.id) %></li>
+        </ul>
+      </div>
+      <!--ログインユーザーがいいねした一覧-->
+      <% @likes.each do |like| %>
+      <% post = Post.find_by(id: like.post_id) %>
+      <div class="row">
+        <div class="col-2"><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+        <div class="col-2"><%= post.user.name %></div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10"><%= attachment_image_tag post, :image, format:'jpg', size: "550x400"%></div>
+      </div>
+      <div class="row my-4">
+        <div class="col-2"></div>
+        <div class="col-10"><%= link_to post.introduction, post_path(post.id) %></div>
+      </div>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3">コメント</div>
+        <div class="col-3 like-btn<%= post.id %>">
+          <%= render partial: 'likes/like-btn', locals: {post: post} %>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <hr>
+      <% end %>
+    </div>
+    <!--検索機能-->
+    <div class="col-3">
+      <div class="row">
+        <div class="col test-center mt-4">
+          <%= form_with url:search_path, method: :get, local: true do |f| %>
+            <%= f.text_field 'search[value]' %>
+            <%= f.select 'search[model]', options_for_select({ "Post" => "post", "User" => "user" }) %>
+            <%= f.select 'search[how]', options_for_select({ "キーワード" => "partical", "完全一致" => "match" }) %>
+            <%= f.submit :'検索' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

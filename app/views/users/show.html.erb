@@ -1,5 +1,6 @@
 <div class="contaoner">
   <div class="row my-5">
+    <!--サイドバー一覧-->
     <div class="col-3">
       <%= link_to 'ホーム', posts_path, class: 'btn btn-primary' %><br>
       <%= link_to 'プロフィール', user_path(current_user), class: 'btn btn-primary' %><br>
@@ -24,12 +25,12 @@
       </div>
       <div class="row mt-3 mb-5"><%= @user.introduction %></div>
       <div class="row mb-3">
-        <div class="col">
+        <div class="col follow-count">
           <%= link_to user_followings_path(@user.id) do %>
           <h6>フォロー中 <%= @user.followings.count %></h6>
           <% end %>
         </div>
-        <div class="col">
+        <div class="col follow-count">
           <%= link_to user_followers_path(@user.id) do %>
           <h6>フォロワー <%= @user.followers.count %></h6>
           <% end %>
@@ -37,12 +38,10 @@
       </div>
       <div class="row">
         <ul class="user-tabs">
-          <li>投稿</li>
-          <li>いいね</li>
+          <li class="active"><%= link_to "投稿", user_path(@user.id) %></li>
+          <li><%= link_to "いいね", user_likes_path(@user.id) %></li>
         </ul>
       </div>
-
-
       <!--ログインユーザーが投稿した一覧-->
       <% @posts.each do |post| %>
       <div class="row">
@@ -60,26 +59,26 @@
       <div class="row">
         <div class="col-3"></div>
         <div class="col-3">コメント</div>
-        <div class="col-3">
-          <% if post.liked_by?(current_user) %>
-          <p>
-            <%= link_to post_likes_path(post), method: :delete do %>
-              ❤ <%= post.likes.count %>
-            <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to post_likes_path(post), method: :post do %>
-              ♡ <%= post.likes.count %>
-            <% end %>
-          </p>
-          <% end %>
+        <!--いいねの非同期化-->
+        <div class="col-3 like-btn<%= post.id %>">
+          <%= render partial: 'likes/like-btn', locals: {post: post} %>
         </div>
         <div class="col-3"></div>
       </div>
       <hr>
       <% end %>
     </div>
+    <!--検索機能-->
     <div class="col-3">
+      <div class="row">
+        <div class="col test-center mt-4">
+          <%= form_with url:search_path, method: :get, local: true do |f| %>
+            <%= f.text_field 'search[value]' %>
+            <%= f.select 'search[model]', options_for_select({ "Post" => "post", "User" => "user" }) %>
+            <%= f.select 'search[how]', options_for_select({ "キーワード" => "partical", "完全一致" => "match" }) %>
+            <%= f.submit :'検索' %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>

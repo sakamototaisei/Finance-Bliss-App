@@ -1,0 +1,10 @@
+<% post.post_comments.each do |post_comment| %>
+  <div class="row my-4">
+    <div class="col-2"><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+    <div class="col-8">
+      <div class="row"><%= post_comment.user.name %></div>
+      <div class="row"><%= post_comment.comment %></div>
+    </div>
+    <div class="col-2"><%= link_to '', post_post_comment_path(post_comment.post, post_comment), class: 'fas fa-trash-alt fa-2x', method: :delete, "data-confirm" => "本当に消しますか？" %></div>
+  </div>
+<% end %>

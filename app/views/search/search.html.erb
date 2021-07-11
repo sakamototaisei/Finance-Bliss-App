@@ -1,0 +1,83 @@
+<div class="contaoner">
+  <div class="row my-5">
+    <div class="col-3">
+      <%= link_to 'ホーム', posts_path, class: 'btn btn-primary' %><br>
+      <%= link_to 'プロフィール', user_path(current_user), class: 'btn btn-primary' %><br>
+      <%= link_to '投資先診断', investment_path, class: 'btn btn-primary' %><br>
+      <%= link_to '新規投稿', new_post_path, class: 'btn btn-primary' %>
+    </div>
+    <div class="col-6">
+    <% if @model == "user" %>
+    <% @datas.each do |user| %>
+      <div class="row">
+        <div class="col-2"><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+        <div class="col-6">
+          <div class="row"><%= link_to user.name, user_path(user.id) %></div>
+          <div class="row"><%= user.introduction %></div>
+        </div>
+        <% if user.id == current_user.id %>
+        <% else %>
+        <div class="col-4">
+          <% if current_user.following?(user) %>
+            <%= link_to "フォロー中", user_relationships_path(user.id), class: "btn btn-info", method: :delete %>
+          <% else %>
+            <%= link_to "フォロー", user_relationships_path(user.id), class: "btn btn-success", method: :post %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+      <hr>
+      <% end %>
+    <% elsif @model == "post" %>
+      <% @datas.each do |post| %>
+      <div class="row">
+        <div class="col-2"><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+        <div class="col-2"><%= post.user.name %></div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10"><%= attachment_image_tag post, :image, format:'jpg', size: "550x400"%></div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10 my-4"><%= link_to post.introduction, post_path(post.id) %></div>
+      </div>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3">
+          <i class="far fa-comment"></i> <%= post.post_comments.count %>
+        </div>
+        <div class="col-3">
+          <% if post.liked_by?(current_user) %>
+          <p>
+            <%= link_to post_likes_path(post), method: :delete do %>
+              ❤ <%= post.likes.count %>
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to post_likes_path(post), method: :post do %>
+              ♡ <%= post.likes.count %>
+            <% end %>
+          </p>
+          <% end %>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <hr>
+      <% end %>
+    <% end %>
+    </div>
+    <div class="col-3">
+      <div class="row">
+        <div class="col test-center mt-4">
+          <%= form_with url:search_path, method: :get, local: true do |f| %>
+            <%= f.text_field 'search[value]' %>
+            <%= f.select 'search[model]', options_for_select({ "Post" => "post", "User" => "user" }) %>
+            <%= f.select 'search[how]', options_for_select({ "キーワード" => "partical", "完全一致" => "match" }) %>
+            <%= f.submit :'検索' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
