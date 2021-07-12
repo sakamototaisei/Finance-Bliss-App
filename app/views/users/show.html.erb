@@ -58,7 +58,9 @@
       </div>
       <div class="row">
         <div class="col-3"></div>
-        <div class="col-3">コメント</div>
+        <div class="col-3">
+          <i class="far fa-comment"></i> <%= post.post_comments.count %>
+        </div>
         <!--いいねの非同期化-->
         <div class="col-3 like-btn<%= post.id %>">
           <%= render partial: 'likes/like-btn', locals: {post: post} %>

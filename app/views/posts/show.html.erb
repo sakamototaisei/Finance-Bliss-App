@@ -20,7 +20,9 @@
         <div class="col-10 my-4"><%= @post.introduction %></div>
       </div>
       <div class="row">
-        <div class="col-3 text-right">コメント</div>
+        <div class="col-3 text-right comments-count<%= @post.id %>">
+          <i class="far fa-comment"></i> <%= @post.post_comments.count %>
+        </div>
         <!--いいねの非同期-->
         <div class="col-3 text-right like-btn<%= @post.id %>">
           <%= render partial: 'likes/like-btn', locals: {post: @post} %>
@@ -32,8 +34,8 @@
       </div>
       <hr>
       <!--コメントの非同期化-->
-      <div class="col" id="comments_area">
-        <%= render partial: 'post_comments/comment', locals: {post: @post} %>
+      <div class="col post_comments">
+        <%= render partial: 'post_comments/index', locals: {post: @post} %>
       </div>
       <div class="row">
         <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: @post_comment } %>
