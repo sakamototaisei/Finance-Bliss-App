@@ -6,12 +6,11 @@
   </div>
   <div class="row">
     <div class="col my-5 text-center">
-      <h1>年齢を入力してくださいfrom</h1>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col my-5 text-center">
-      <h1>結果を見るButton</h1>
+    <%= form_with url: answer_path(@age), local:true do |f| %>
+      <h1>年齢を入力してください</h1>
+      <%= f.text_area :age, size: "30x5" %><br>
+      <%= f.submit '結果を見る', class: 'btn btn-primary' %>
+    <% end %>
     </div>
   </div>
   <div class="row">
@@ -78,14 +77,6 @@
       </p>
     </div>
     <div class="col"><%= image_tag 'top14.png', size: "400x300" %></div>
-  </div>
-  <div class="row my-5">
-    <div class="col"><%= image_tag 'top12.png', size: "600x300" %></div>
-    <div class="col">
-      <p>
-
-      </p>
-    </div>
   </div>
   <div class="row">
     <div class="col-3"></div>
