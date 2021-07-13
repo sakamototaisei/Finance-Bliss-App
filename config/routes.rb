@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "homes#top"
-  get "answer", to: "homes#answer"
+  post "answer", to: "homes#answer"
   get "about", to: "homes#about"
   get "save", to: "homes#save"
   get "investment", to: "homes#investment"
