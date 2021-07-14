@@ -1,0 +1,54 @@
+<div class="contaoner">
+  <div class="row my-5">
+    <!--サイドバー一覧-->
+    <div class="col-3">
+      <%= render 'users/sidebar' %>
+    </div>
+    <div class="col-6">
+      <%= render 'users/profile', user: @user %>
+      <div class="row">
+        <ul class="user-tabs">
+          <li><%= link_to "投稿", user_path(@user.id) %></li>
+          <li class="active"><%= link_to "いいね", user_likes_path(@user.id) %></li>
+        </ul>
+      </div>
+      <!--ログインユーザーがいいねした一覧-->
+      <% @likes.each do |like| %>
+      <% post = Post.find_by(id: like.post_id) %>
+      <div class="row">
+        <div class="col-2"><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+        <div class="col-2"><%= post.user.name %></div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10"><%= attachment_image_tag post, :image, format:'jpg', size: "550x400"%></div>
+      </div>
+      <div class="row my-4">
+        <div class="col-2"></div>
+        <div class="col-10"><%= link_to post.introduction, post_path(post.id) %></div>
+      </div>
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3">コメント</div>
+        <div class="col-3 like-btn<%= post.id %>">
+          <%= render partial: 'likes/like-btn', locals: {post: post} %>
+        </div>
+        <div class="col-3"></div>
+      </div>
+      <hr>
+      <% end %>
+    </div>
+    <!--検索機能-->
+    <div class="col-3">
+      <div class="row">
+        <div class="col test-center mt-4">
+          <%= form_with url:search_path, method: :get, local: true do |f| %>
+            <%= f.text_field 'search[value]' %>
+            <%= f.select 'search[model]', options_for_select({ "Post" => "post", "User" => "user" }) %>
+            <%= f.select 'search[how]', options_for_select({ "キーワード" => "partical", "完全一致" => "match" }) %>
+            <%= f.submit :'検索' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

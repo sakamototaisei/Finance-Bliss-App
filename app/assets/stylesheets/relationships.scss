@@ -1,3 +1,29 @@
 // Place all the styles related to the relationships controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ユーザー詳細のフォロー一覧フォロワー一覧の切り替え
+ul, li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.follow-tabs {
+  margin-top: 40px;
+  background-color: white;
+  overflow: hidden;
+}
+.follow-tabs li {
+  float: left;
+}
+.follow-tabs li.active {
+  border-bottom: 2px solid #3ecdc6;
+}
+.follow-tabs li.active a {
+  color: #57575f;
+}
+.follow-tabs a {
+  display: inline-block;
+  padding: 16px 30px;
+  color: #afb6bf;
+}

@@ -1,0 +1,17 @@
+<div class="contaoner">
+  <div class="row my-5">
+    <div class="col-3">
+      <%= render 'users/sidebar' %>
+    </div>
+    <div class="col-6">
+        <div class="row">
+          <div class="col-2"><%= link_to '', user_path(@user.id), class: 'fas fa-long-arrow-alt-left fa-3x' %></div>
+          <div class="col-2"><%= @user.name %></div>
+        </div>
+        <div class="row my-4">
+          <ul class="follow-tabs">
+            <li><%= link_to "フォロー中", user_followings_path(@user.id) %></li>
+            <li class="active"><%= link_to "フォロワー", user_followers_path(@user.id) %></li>
+          </ul>
+        </div>
+      <%= render 'relationships/follow', users: @users %>

@@ -1,9 +1,54 @@
-<div class="post-body">
-  <%= attachment_image_tag @post, :image, format:'jpg', size: "200x200" %>
-  <p>投稿内容：<%= @post.introduction %></p>
-  <p>ユーザーネーム：<%= @post.user.name %></p>
-  <% if @post.user == current_user %>
-    <%= link_to '', post_path(@post), class: 'fas fa-trash-alt fa-2x', method: :delete, "data-confirm" => "本当に消しますか？" %>
-    <%= link_to '', edit_post_path(@post.id), class: 'fas fa-cog fa-2x' %>
-  <% end %>
+<div class="contaoner">
+  <div class="row my-5">
+    <div class="col-3">
+      <%= render 'users/sidebar' %>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-2"><%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+        <div class="col-2"><%= @post.user.name %></div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10"><%= attachment_image_tag @post, :image, format:'jpg', size: "550x400"%></div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10 my-4"><%= @post.introduction %></div>
+      </div>
+      <div class="row">
+        <div class="col-3 text-right comments-count<%= @post.id %>">
+          <i class="far fa-comment"></i> <%= @post.post_comments.count %>
+        </div>
+        <!--いいねの非同期-->
+        <div class="col-3 text-right like-btn<%= @post.id %>">
+          <%= render partial: 'likes/like-btn', locals: {post: @post} %>
+        </div>
+        <% if @post.user == current_user %>
+        <div class="col-3 text-right"><%= link_to '', post_path(@post), class: 'fas fa-trash-alt fa-2x', method: :delete, "data-confirm" => "本当に消しますか？" %></div>
+        <div class="col-3 text-right"><%= link_to '', edit_post_path(@post.id), class: 'fas fa-cog fa-2x' %></div>
+        <% end %>
+      </div>
+      <hr>
+      <!--コメントの非同期化-->
+      <div class="col post_comments">
+        <%= render partial: 'post_comments/index', locals: {post: @post} %>
+      </div>
+      <div class="row">
+        <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: @post_comment } %>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="row">
+        <div class="col test-center mt-4">
+          <%= form_with url:search_path, method: :get, local: true do |f| %>
+            <%= f.text_field 'search[value]' %>
+            <%= f.select 'search[model]', options_for_select({ "Post" => "post", "User" => "user" }) %>
+            <%= f.select 'search[how]', options_for_select({ "キーワード" => "partical", "完全一致" => "match" }) %>
+            <%= f.submit :'検索' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

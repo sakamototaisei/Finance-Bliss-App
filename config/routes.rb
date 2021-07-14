@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "homes#top"
-  get "answer", to: "homes#answer"
+  post "answer", to: "homes#answer"
   get "about", to: "homes#about"
   get "save", to: "homes#save"
   get "investment", to: "homes#investment"
@@ -17,13 +17,13 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
     get "followings", to: "relationships#followings", as: "followings"
-    get "follwers", to: "relationships#follwers", as: "follwers"
-    get "posts/:id/liles", to: "users#likes"
+    get "followers", to: "relationships#followers", as: "followers"
+    get "posts/:id/liles", to: "users#likes", as: "likes"
   end
 
   resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
     resources :post_comments, only: [:create, :destroy]
-    resource :liles, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
   end
 
 

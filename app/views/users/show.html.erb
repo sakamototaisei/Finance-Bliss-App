@@ -1,44 +1,31 @@
 <div class="contaoner">
-  <div class="row">
+  <div class="row my-5">
+    <!--サイドバー一覧-->
     <div class="col-3">
-      <%= link_to 'ホーム', posts_path, class: 'btn btn-primary' %><br>
-      <%= link_to 'プロフィール', user_path(current_user), class: 'btn btn-primary' %><br>
-      <%= link_to '投資先診断', investment_path, class: 'btn btn-primary' %><br>
-      <%= link_to '新規投稿', new_post_path, class: 'btn btn-primary' %>
+      <%= render 'users/sidebar' %>
     </div>
     <div class="col-6">
-      <div class="row my-5">
-        <div class="col-4"><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %></div>
-        <div class="col-4"><%= @user.name %></div>
-        <div class="col-4"><%= link_to 'プロフィールの編集', edit_user_path(@user.id), class: 'btn btn-primary' %></div>
-      </div>
-      <div class="row mt-3 mb-5"><%= @user.introduction %></div>
-      <div class="row mb-3">
-        <div class="col"><h6>フォロー中</h6></div>
-        <div class="col"><h6>フォロワー</h6></div>
-      </div>
+      <%= render 'users/profile', user: @user %>
       <div class="row">
         <ul class="user-tabs">
-          <li></li>
-          <li></li>
+          <li class="active"><%= link_to "投稿", user_path(@user.id) %></li>
+          <li><%= link_to "いいね", user_likes_path(@user.id) %></li>
         </ul>
       </div>
-
-
       <!--ログインユーザーが投稿した一覧-->
-      <% @posts.each do |post| %>
+      <%= render 'posts/index', posts: @posts %>
+    </div>
+    <!--検索機能-->
+    <div class="col-3">
       <div class="row">
-        <div class="col">
-          <p>投稿ユーザー画像：<%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size: "50x50" %></p>
-          <%= attachment_image_tag post, :image, format:'jpg', size: "100x100"%>
-          <p>投稿内容：<%= link_to post.introduction, post_path(post.id) %></p>
-          <p>ユーザーネーム：<%= post.user.name %></p>
-          <hr>
+        <div class="col test-center mt-4">
+          <%= form_with url:search_path, method: :get, local: true do |f| %>
+            <%= f.text_field 'search[value]' %>
+            <%= f.select 'search[model]', options_for_select({ "Post" => "post", "User" => "user" }) %>
+            <%= f.select 'search[how]', options_for_select({ "キーワード" => "partical", "完全一致" => "match" }) %>
+            <%= f.submit :'検索' %>
+          <% end %>
         </div>
       </div>
-      <% end %>
-    </div>
-    <div class="col-3">
     </div>
   </div>
-</div>

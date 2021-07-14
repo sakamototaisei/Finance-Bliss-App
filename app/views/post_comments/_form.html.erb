@@ -1,0 +1,8 @@
+<div class="col-3"></div>
+<%= form_with model:[post, post_comment] do |f| %>
+<div class="col-6">
+  <%= f.text_area :comment, size: "30x5", placeholder: "コメントをここに" %>
+  <%= f.submit "送信", class: 'btn btn-primary' %>
+</div>
+<% end %>
+<div class="col-3"></div>
