@@ -6,6 +6,41 @@
 .follow-count a {
   color: #57575f;
 }
+.follow-btn {
+	display: inline-block;
+	position: absolute;
+	width: 130px;
+	height: 40px;
+	border: 2px solid #333;
+	border-radius: 80px;
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+}
+.button span {
+	display: inline-block;
+	position: absolute;
+	width: 130px;
+	height: 40px;
+	border: 2px solid #333;
+	border-radius: 80px;
+	text-align: center;
+	line-height: 40px;
+}
+.button span:nth-child(1) {
+	background-color: #fff;
+	color: #333;
+
+}
+.button span:nth-child(2) {
+	background-color: #333;
+	color: #fff;
+
+}
+.button:hover span:nth-child(2) {
+	display: none;
+}
 
 // ユーザー詳細の投稿一覧いいね一覧の切り替え
 ul, li {

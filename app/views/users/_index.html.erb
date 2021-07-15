@@ -9,9 +9,13 @@
   <% else %>
   <div class="col-4">
     <% if current_user.following?(user) %>
-      <%= link_to "フォロー中", user_relationships_path(user.id), class: "btn btn-info", method: :delete %>
+      <!--%= link_to "フォロー中", user_relationships_path(user.id), class: "btn btn-info", method: :delete %>-->
+      <%= link_to user_relationships_path(user.id), class: 'button', method: :delete do %>
+        <span>フォロー解除</span>
+        <span>フォロー中</span>
+      <% end %>
     <% else %>
-      <%= link_to "フォロー", user_relationships_path(user.id), class: "btn btn-success", method: :post %>
+      <%= link_to "フォロー", user_relationships_path(user.id), class: "follow-btn", method: :post %>
     <% end %>
   </div>
   <% end %>
