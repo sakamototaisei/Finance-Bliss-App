@@ -1,3 +1,52 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// about背景動画
+/*header設定*/
+.about-bg {
+  background-color: #fff;
+}
+#header{
+    position: relative;/*h1の中央寄せ配置の起点とするためのrelative*/
+    height: 100vh;/*高さを全画面にあわせる*/
+}
+video {
+  width: 100%;
+}
+#video-area{
+    position: fixed;
+    z-index: -1;/*最背面に設定*/
+    top: 0;
+    right:0;
+    left:0;
+    bottom:0;
+    overflow: hidden;
+}
+
+#bg-video {
+    /*天地中央配置*/
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*縦横幅指定*/
+    width: 177.77777778vh; /* 16:9 の幅→16 ÷ 9＝ 177.77% */
+    height: 56.25vw; /* 16:9の幅 → 9 ÷ 16 = 56.25% */
+    min-height: 100%;
+    min-width: 100%;
+}
+/*見出し設定*/
+.title {
+    /*要素の配置*/
+    position:absolute;
+    /*要素を天地中央寄せ*/
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    /*見た目の調整*/
+    color:#fff;
+    text-shadow: 0 0 15px #666;
+    font-size: 85px;
+}

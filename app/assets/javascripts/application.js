@@ -26,3 +26,5 @@ $(function() {
         $('div.total').text('選択：' + cnt + '個');
     }).trigger('change');
 });
+
+// aboutページ
