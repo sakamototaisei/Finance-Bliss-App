@@ -6,41 +6,107 @@
 .follow-count a {
   color: #57575f;
 }
+/*表示するテキストが切り替わる*/
 .follow-btn {
-	display: inline-block;
-	position: absolute;
-	width: 130px;
-	height: 40px;
-	border: 2px solid #333;
-	border-radius: 80px;
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	line-height: 40px;
+    /*テキストの基点とするためrelativeを指定*/
+  position: relative;
+    /*ボタンの形状*/
+  border: 1px solid #555;
+  border-radius:25px;
+  min-width:130px;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  outline: none;
+    /*アニメーションの指定*/
+  transition: all .2s;
 }
-.button span {
-	display: inline-block;
-	position: absolute;
-	width: 130px;
-	height: 40px;
-	border: 2px solid #333;
-	border-radius: 80px;
-	text-align: center;
-	line-height: 40px;
-}
-.button span:nth-child(1) {
-	background-color: #fff;
-	color: #333;
 
+/*hoverした際の変化*/
+.follow-btn:hover{
+  background:#333;
+  color:#fff;
 }
-.button span:nth-child(2) {
-	background-color: #333;
-	color: #fff;
 
+.follow-btn span{
+    /*絶対配置でテキストの位置を決める*/
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+    /*アニメーションの指定*/
+  transition: all .5s;
+  /*ブロック要素にしてテキスト折り返しなし*/
+  display: block;
+  white-space: nowrap;
 }
-.button:hover span:nth-child(2) {
-	display: none;
+
+/*差し替わるテキストの設定*/
+.follow-btn span:nth-child(2){
+  opacity:0;/*透過0に*/
 }
+
+/*hoverするとテキストが入れ替わる設定*/
+.follow-btn:hover span:nth-child(1){
+  opacity:0;/*透過0に*/
+}
+
+.follow-btn:hover span:nth-child(2){
+  opacity:1;/*不透明に*/
+}
+/*表示するテキストが切り替わる*/
+.btntextchange{
+    /*テキストの基点とするためrelativeを指定*/
+  position: relative;
+    /*ボタンの形状*/
+  border: 1px solid #555;
+  border-radius:25px;
+  min-width:130px;
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  outline: none;
+    /*アニメーションの指定*/
+  transition: all .2s;
+}
+
+/*hoverした際の変化*/
+.btntextchange:hover{
+  background:#333;
+  color:#fff;
+}
+
+.btntextchange span{
+    /*絶対配置でテキストの位置を決める*/
+  position: absolute;
+  left: 50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+    /*アニメーションの指定*/
+  transition: all .5s;
+  /*ブロック要素にしてテキスト折り返しなし*/
+  display: block;
+  white-space: nowrap;
+}
+
+/*差し替わるテキストの設定*/
+.btntextchange span:nth-child(2){
+  opacity:0;/*透過0に*/
+}
+
+/*hoverするとテキストが入れ替わる設定*/
+.btntextchange:hover span:nth-child(1){
+  opacity:0;/*透過0に*/
+}
+
+.btntextchange:hover span:nth-child(2){
+  opacity:1;/*不透明に*/
+}
+
 
 // ユーザー詳細の投稿一覧いいね一覧の切り替え
 ul, li {

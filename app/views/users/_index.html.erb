@@ -10,12 +10,15 @@
   <div class="col-4">
     <% if current_user.following?(user) %>
       <!--%= link_to "フォロー中", user_relationships_path(user.id), class: "btn btn-info", method: :delete %>-->
-      <%= link_to user_relationships_path(user.id), class: 'button', method: :delete do %>
-        <span>フォロー解除</span>
+      <%= link_to user_relationships_path(user.id), class: 'btntextchange', method: :delete do %>
         <span>フォロー中</span>
+        <span>フォロー解除</span>
       <% end %>
     <% else %>
-      <%= link_to "フォロー", user_relationships_path(user.id), class: "follow-btn", method: :post %>
+      <%= link_to user_relationships_path(user.id), class: "follow-btn", method: :post do %>
+        <span>フォロー</span>
+        <span>フォローする</span>
+      <% end %>
     <% end %>
   </div>
   <% end %>

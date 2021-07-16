@@ -2,11 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// about背景動画
-/*header設定*/
-.about-bg {
-  background-color: #fff;
-}
+// about
 #header{
     position: relative;/*h1の中央寄せ配置の起点とするためのrelative*/
     height: 100vh;/*高さを全画面にあわせる*/
@@ -49,4 +45,55 @@ video {
     color:#fff;
     text-shadow: 0 0 15px #666;
     font-size: 85px;
+}
+
+
+// サブタイトル
+.about-subtitle {
+    background-color: #080808;
+    color: #fff;
+}
+.sub-text {
+    line-height: 2.0;
+}
+.vertical-text {
+    writing-mode: vertical-rl;
+    margin-left: 100px;
+    letter-spacing: 0.2em
+}
+
+
+// プロフィール
+.about-profile {
+    background-color: #080808;
+    color: #fff;
+}
+#title-box {
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    margin: auto;
+    height: 160px;
+    width: 100%;
+}
+.profile-title {
+    font-size: 120px;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 100px;
+}
+.subtitle {
+    position: absolute;
+    top: 90px;
+    left: 280px;
+}
+
+// aboutフォーム
+.about-form {
+    background-color: #9b9c9b;
+}
+.form-dm {
+    color: #fff;
 }

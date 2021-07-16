@@ -1,14 +1,35 @@
-<div class="about-bg">
+<div class="about-subtitle">
   <div class="container">
-    <div class="row mt-5 text-center">
-      <div class="col">
-        <p>金融リテラシーを上げて幸せな未来を</p>
+    <div class="row py-5">
+      <div class="col-2 d-flex align-items-center">
+        <h3 class="vertical-text">ABOUT US</h3>
       </div>
+      <div class="col-8 text-center">
+        <h3 class="pb-5">金融リテラシーを身につけ幸せな未来を。</h3>
+        <p class="sub-text pb-5">
+          老後資金2000万円不足問題の解決のために正しくお金の知識を身につけ<br>
+          早いうちから将来に備え資産設計を行い準備していれば、<br>
+          決して難しい金額ではないことをFBAを通じて皆さんに伝えたいと考えています。
+        </p>
+      </div>
+      <div class="col-2"></div>
     </div>
   </div>
-  <!--バックグラウンド動画のしたのレイアウト-->
+</div>
+  <!--プロフィールのレイアウト-->
+<div class="about-profile">
   <div class="container">
     <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div id="title-box">
+          <h1 class="profile-title">About</h1>
+          <h1 class="subtitle">About Me</h1>
+        </div>
+      </div>
+      <div class="col-2"></div>
+    </div>
+    <div class="row py-5">
       <div class="col">
         <%= image_tag 'sakatai.jpg', size: "300x400" %>
       </div>
@@ -21,17 +42,25 @@
             <i class="fab fa-youtube"></i>
           </div>
         </div>
-        <div class="row">メッセージ</div>
         <div class="row">
-        老後の資金不足問題解決のために正しくお金の知識を身につ け自分に合った資産設計を行うこと、
-        早いうちから将来のことを考え資産設計を行い準備していれば決して難しい 金額ではないことをアプリを通じて皆さんに伝えたいと考えています。
+          <div class="col">
+            メッセージ
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            老後資金2000万円不足問題の解決のために正しくお金の知識を身につけ自分に合った資産設計を行うこと、
+            早いうちから将来のことを考え資産設計を行い準備していれば決して難しい金額ではないことをアプリを通じて皆さんに伝えたいと考えています。
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
   <!--お問い合わせフォーム-->
+<div class="about-form">
   <div class="container">
-    <div class="row text-center mt-5">
+    <div class="row text-center pt-5">
       <div class="col">
         <h1>Contact Form</h1>
       </div>
@@ -57,7 +86,7 @@
     </div>
     <div class="row text-center mt-5">
       <div class="col">
-        <p>
+        <p class="form-dm">
           現在こちらのフォームはご利用いただけません。<br>
           TwitterのDMにてご連絡お待ちしております。
         </p>
