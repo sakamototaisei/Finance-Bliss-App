@@ -7,12 +7,18 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save
-    redirect_to posts_path
+    if @post.save
+      flash.now[:success] = "新規投稿しました"
+      redirect_to posts_path
+    else
+      @post = Post.new
+      flash.now[:alert] = "投稿内容の記述をしてください"
+      render :new
+    end
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
 
   def show
@@ -27,9 +33,11 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash[:notice] = "投稿内容を変更しました"
+      flash.now[:success] = "投稿内容を変更しました"
       redirect_to post_path(@post.id)
     else
+      @post = Post.find(params[:id])
+      flash.now[:alert] = "画像本文空欄での保存はできません"
       render :edit
     end
   end

@@ -1,7 +1,9 @@
-<div class="contaoner">
-  <div class="row my-5">
+<div class="contaoner-fluid">
+  <div class="row py-5">
     <div class="col-3">
-      <%= render 'users/sidebar' %>
+      <div class="row sidebar">
+        <%= render 'users/sidebar' %>
+      </div>
     </div>
     <div class="col-6">
     <% if @model == "user" %>
@@ -16,9 +18,15 @@
         <% else %>
         <div class="col-4">
           <% if current_user.following?(user) %>
-            <%= link_to "フォロー中", user_relationships_path(user.id), class: "btn btn-info", method: :delete %>
+            <%= link_to user_relationships_path(user.id), class: 'btntextchange', method: :delete do %>
+              <span>フォロー中</span>
+              <span>フォロー解除</span>
+            <% end %>
           <% else %>
-            <%= link_to "フォロー", user_relationships_path(user.id), class: "btn btn-success", method: :post %>
+            <%= link_to user_relationships_path(user.id), class: "follow-btn", method: :post do %>
+              <span>フォロー</span>
+              <span>フォローする</span>
+            <% end %>
           <% end %>
         </div>
         <% end %>
@@ -33,7 +41,7 @@
       </div>
       <div class="row">
         <div class="col-2"></div>
-        <div class="col-10"><%= attachment_image_tag post, :image, format:'jpg', size: "550x400"%></div>
+        <div class="col-10"><%= attachment_image_tag post, :image, format:'jpg', width: '100%', height: '80%' %></div>
       </div>
       <div class="row">
         <div class="col-2"></div>
@@ -42,22 +50,10 @@
       <div class="row">
         <div class="col-3"></div>
         <div class="col-3">
-          <i class="far fa-comment"></i> <%= post.post_comments.count %>
+          <%= link_to '', post_path(post.id), class: 'far fa-comment' %> <%= post.post_comments.count %>
         </div>
-        <div class="col-3">
-          <% if post.liked_by?(current_user) %>
-          <p>
-            <%= link_to post_likes_path(post), method: :delete do %>
-              ❤ <%= post.likes.count %>
-            <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to post_likes_path(post), method: :post do %>
-              ♡ <%= post.likes.count %>
-            <% end %>
-          </p>
-          <% end %>
+        <div class="col-3 like-btn<%= post.id %>">
+          <%= render partial: 'likes/like-btn', locals: {post: post} %>
         </div>
         <div class="col-3"></div>
       </div>
@@ -65,8 +61,8 @@
       <% end %>
     <% end %>
     </div>
-    <div class="col-3">
-      <div class="row">
+    <div class="col-3 d-none d-lg-block">
+      <div class="row sidebar">
         <div class="col test-center mt-4">
           <%= form_with url:search_path, method: :get, local: true do |f| %>
             <%= f.text_field 'search[value]' %>

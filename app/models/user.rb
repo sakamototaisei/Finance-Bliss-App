@@ -16,6 +16,10 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   # 自分がフォローしている人一覧で返す
   has_many :followings, through: :relationships, source: :followed
+  validates :name, presence: true
+  validates :name, length: { maximum: 30 }
+  validates :introduction, length: { maximum: 160 }
+
 
   def follow(user_id)
     relationships.create(followed_id: user_id)

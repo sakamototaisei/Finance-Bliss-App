@@ -2,6 +2,7 @@
 <div class="row">
   <div class="col-2"><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
   <div class="col-2"><%= post.user.name %></div>
+  <div class="col-5"><%= post.created_at.strftime('%Y/%m/%d') %></div>
 </div>
 <div class="row">
   <div class="col-2"></div>
@@ -14,7 +15,7 @@
 <div class="row">
   <div class="col-3"></div>
   <div class="col-3">
-    <i class="far fa-comment"></i> <%= post.post_comments.count %>
+    <%= link_to '', post_path(post.id), class: 'far fa-comment' %> <%= post.post_comments.count %>
   </div>
   <div class="col-3 like-btn<%= post.id %>">
     <%= render partial: 'likes/like-btn', locals: {post: post} %>
