@@ -1,8 +1,10 @@
-<div class="contaoner">
-  <div class="row my-5">
+<div class="container-fluid">
+  <div class="row py-5">
     <!--サイドバー一覧-->
     <div class="col-3">
-      <%= render 'users/sidebar' %>
+      <div class="row sidebar">
+        <%= render 'users/sidebar' %>
+      </div>
     </div>
     <div class="col-6">
       <%= render 'users/profile', user: @user %>
@@ -21,7 +23,7 @@
       </div>
       <div class="row">
         <div class="col-2"></div>
-        <div class="col-10"><%= attachment_image_tag post, :image, format:'jpg', size: "550x400"%></div>
+        <div class="col-10"><%= attachment_image_tag post, :image, format:'jpg', width: '100%', height: '80%' %></div>
       </div>
       <div class="row my-4">
         <div class="col-2"></div>
@@ -39,8 +41,8 @@
       <% end %>
     </div>
     <!--検索機能-->
-    <div class="col-3">
-      <div class="row">
+    <div class="col-3 d-none d-lg-block">
+      <div class="row sidebar">
         <div class="col test-center mt-4">
           <%= form_with url:search_path, method: :get, local: true do |f| %>
             <%= f.text_field 'search[value]' %>

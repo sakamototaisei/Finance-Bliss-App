@@ -1,16 +1,18 @@
-<div class="contaoner">
-  <div class="row my-5">
+<div class="container-fluid">
+  <div class="row py-5">
     <div class="col-3">
-      <%= render 'users/sidebar' %>
+      <div class="row sidebar">
+        <%= render 'users/sidebar' %>
+      </div>
     </div>
-    <div class="col-6">
+    <div class="col-8 col-lg-6">
       <div class="row">
         <div class="col-2"><%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
         <div class="col-2"><%= @post.user.name %></div>
       </div>
       <div class="row">
         <div class="col-2"></div>
-        <div class="col-10"><%= attachment_image_tag @post, :image, format:'jpg', size: "550x400"%></div>
+        <div class="col-10"><%= attachment_image_tag @post, :image, format:'jpg', width: '100%', height: '80%'%></div>
       </div>
       <div class="row">
         <div class="col-2"></div>
@@ -38,8 +40,8 @@
         <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: @post_comment } %>
       </div>
     </div>
-    <div class="col-3">
-      <div class="row">
+    <div class="col-3 d-none d-lg-block">
+      <div class="row sidebar">
         <div class="col test-center mt-4">
           <%= form_with url:search_path, method: :get, local: true do |f| %>
             <%= f.text_field 'search[value]' %>

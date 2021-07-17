@@ -1,0 +1,28 @@
+<header id="header">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <%= link_to " FBA", root_path, class: "navbar-brand header-logo"%>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <!--<li class="nav-welcome nav-link text-light">ようこそ、%= current_customer.last_name %>さん！</li>-->
+          <li><%= link_to 'My page', user_path(current_user), class: 'nav-link text-light' %></li>
+          <li><%= link_to 'About', about_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to 'Users', users_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to 'Logb out', destroy_user_session_path, method: :delete, class: 'nav-link text-light' %></li>
+        <% else %>
+          <li><%= link_to 'About', about_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to 'Investment', investment_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to 'Log in', new_user_session_path, class: 'nav-link text-light' %></li>
+        <% end %>
+        </ul>
+      </div>
+  </nav>
+  <h1 class="title">Finance Bliss App.</h1>
+  <div id="video-area">
+    <video id="bg-video" src="assets/pf.mp4" poster="" webkit-playsinline playsinline muted autoplay loop></video>
+  </div>
+</header>

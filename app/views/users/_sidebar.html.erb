@@ -1,4 +1,31 @@
-<%= link_to 'ホーム', posts_path, class: 'btn btn-primary' %><br>
-<%= link_to 'プロフィール', user_path(current_user), class: 'btn btn-primary' %><br>
-<%= link_to '投資先診断', investment_path, class: 'btn btn-primary' %><br>
-<%= link_to '新規投稿', new_post_path, class: 'btn btn-primary' %>
+<div class="col">
+  <div class="row">
+    <div class="col mb-4">
+      <%= link_to 'ホーム', posts_path, class: 'btn d-none d-lg-block' %>
+      <%= link_to '', posts_path, class: 'fas fa-home fa-2x d-lg-none' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-4">
+      <%= link_to 'プロフィール', user_path(current_user), class: 'btn d-none d-lg-block' %>
+      <%= link_to '', user_path(current_user), class: 'fas fa-user fa-2x d-lg-none' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-4">
+      <%= link_to '投資先診断', investment_path, class: 'btn d-none d-lg-block' %>
+      <%= link_to '', investment_path, class: 'fas fa-hand-holding-usd fa-2x d-lg-none' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-4">
+      <%= link_to '新規投稿', new_post_path, class: 'btn d-none d-lg-block' %>
+      <%= link_to '', new_post_path, class: 'fas fa-mail-bulk fa-2x d-lg-none' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <i class="fas fa-search fa-2x d-lg-none"></i>
+    </div>
+  </div>
+</div>

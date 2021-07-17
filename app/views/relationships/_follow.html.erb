@@ -4,8 +4,8 @@
         <h2>ユーザーはまだいません</h2>
       <% end %>
     </div>
-    <div class="col-3">
-      <div class="row">
+    <div class="col-3 d-none d-lg-block">
+      <div class="row sidebar">
         <div class="col test-center mt-4">
           <%= form_with url:search_path, method: :get, local: true do |f| %>
             <%= f.text_field 'search[value]' %>
