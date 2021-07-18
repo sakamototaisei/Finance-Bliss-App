@@ -9,3 +9,18 @@
   position: -webkit-sticky;
   position: sticky;
 }
+
+// いいねアニメーション
+.like-btn {
+  color: red;
+}
+.like-btn:hover {
+  color: red;
+}
+
+.unlike-btn {
+  color: #000;
+}
+.unlike-btn:hover {
+  color: #000;
+}

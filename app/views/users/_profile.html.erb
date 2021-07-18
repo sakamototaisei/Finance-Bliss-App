@@ -3,16 +3,22 @@
   <div class="col-4"><%= user.name %></div>
   <% if @user.id == current_user.id %>
     <div class="col-4">
-      <%= link_to 'プロフィールの編集', edit_user_path(user.id), class: 'btn btn-primary d-none d-lg-block' %>
-      <%= link_to '', edit_user_path(user.id), class: 'fas fa-user-edit fa-2x d-lg-none' %>
+      <%= link_to 'プロフィールの編集', edit_user_path(user.id), class: 'btn btn-outline-dark d-none d-lg-block' %>
+      <%= link_to '', edit_user_path(user.id), class: 'all-btn fas fa-user-edit fa-2x d-lg-none' %>
     </div>
   <% else %>
     <div class="col-4">
       <% if current_user.following?(user) %>
-        <%= link_to "フォロー中", user_relationships_path(user.id), method: :delete, class: "btn btn-info" %>
-      <% else %>
-        <%= link_to "フォロー", user_relationships_path(user.id), method: :post, class: "btn btn-success" %>
+      <%= link_to user_relationships_path(user.id), class: 'btntextchange', method: :delete do %>
+        <span>フォロー中</span>
+        <span>フォロー解除</span>
       <% end %>
+    <% else %>
+      <%= link_to user_relationships_path(user.id), class: "follow-btn", method: :post do %>
+        <span>フォロー</span>
+        <span>フォローする</span>
+      <% end %>
+    <% end %>
     </div>
   <% end %>
 </div>

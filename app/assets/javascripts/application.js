@@ -72,7 +72,7 @@ $(document).on('turbolinks:load', function() {
   $('#question6-no-show').click(function() {
     $('.deposit-modal').fadeIn();
   });
-
+    // もう一度診断するために全部フェードアウト
   $('.close-modal').click(function(){
     $('.time-modal').fadeOut();
     $('.life-modal').fadeOut();
@@ -88,7 +88,8 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
-// フラッシュメッセージ
+
+// フラッシュメッセージを消す
 $(document).on('turbolinks:load', function(){
   setTimeout("$('.flash').fadeOut('slow')", 2000);
 });
@@ -133,6 +134,7 @@ $(document).on('turbolinks:load', function(){
   });
 });
 
+
 // 投稿文字数表示
 $(document).on('turbolinks:load', function(){
   // 処理（ページが読み込まれた時、フォームに残り何文字入力できるかを数えて表示する）
@@ -163,3 +165,19 @@ $(document).on('turbolinks:load', function(){
     $(".js-text-count").text( "残り" + now_count + "文字");
   });
 });
+
+
+// 空欄で検索を押したらアラートを表示する
+$(document).on('turbolinks:load', function() {
+  // submit()に関数をバインド
+  $('#form').submit(function() {
+    // もしテキストボックスが空欄だったら…
+    if($('.text-field').val() == '') {
+      // 警告を出す
+      alert('空欄です！');
+      // 処理を中断
+      return false;
+    }
+  });
+});
+

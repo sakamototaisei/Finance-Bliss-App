@@ -2,7 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// フォント設定投資先診断診断
+.font-family {
+    font-family: Hiragino Maru Gothic ProN W4;
+}
+
+
+
+
+
 // topページ
+.age-textfield input {
+    font-size: 650%;
+    width: 150px;
+    height: 150px;
+}
+
 .toppage {
     background-color: #fff;
 }
@@ -54,9 +69,9 @@ video {
 }
 
 // aboutページ
-.about-bg-image {
-    background-color: #f4f2f1;
-}
+// .about-bg-image {
+//     background-color: #f4f2f1;
+// }
 // サブタイトル
 .about-subtitle {
     background-color: #f4f2f1;

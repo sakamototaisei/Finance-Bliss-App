@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      flash.now[:success] = "新規投稿しました"
+      flash[:success] = "新規投稿しました"
       redirect_to posts_path
     else
       @post = Post.new
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash.now[:success] = "投稿内容を変更しました"
+      flash[:success] = "投稿内容を変更しました"
       redirect_to post_path(@post.id)
     else
       @post = Post.find(params[:id])

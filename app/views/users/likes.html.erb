@@ -18,7 +18,11 @@
       <% @likes.each do |like| %>
       <% post = Post.find_by(id: like.post_id) %>
       <div class="row">
-        <div class="col-2"><%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+        <div class="col-2">
+          <%= link_to user_path(post.user.id) do %>
+          <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %>
+          <% end %>
+          </div>
         <div class="col-2"><%= post.user.name %></div>
         <div class="col-5"><%= post.created_at.strftime('%Y/%m/%d') %></div>
       </div>
@@ -28,11 +32,11 @@
       </div>
       <div class="row my-4">
         <div class="col-2"></div>
-        <div class="col-10"><%= link_to post.introduction, post_path(post.id) %></div>
+        <div class="col-10 introduction-link"><%= link_to post.introduction, post_path(post.id) %></div>
       </div>
       <div class="row">
         <div class="col-3"></div>
-        <div class="col-3">
+        <div class="col-3 comment-link">
           <%= link_to '', post_path(post.id), class: 'far fa-comment' %> <%= post.post_comments.count %>
         </div>
         <div class="col-3 like-btn<%= post.id %>">
@@ -45,15 +49,6 @@
     </div>
     <!--検索機能-->
     <div class="col-3 d-none d-lg-block">
-      <div class="row sidebar">
-        <div class="col test-center mt-4">
-          <%= form_with url:search_path, method: :get, local: true do |f| %>
-            <%= f.text_field 'search[value]' %>
-            <%= f.select 'search[model]', options_for_select({ "Post" => "post", "User" => "user" }) %>
-            <%= f.select 'search[how]', options_for_select({ "キーワード" => "partical", "完全一致" => "match" }) %>
-            <%= f.submit :'検索' %>
-          <% end %>
-        </div>
-      </div>
+      <%= render 'search/searchbar' %>
     </div>
   </div>

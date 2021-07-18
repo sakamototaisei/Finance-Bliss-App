@@ -7,9 +7,8 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <!--<li class="nav-welcome nav-link text-light">ようこそ、%= current_customer.last_name %>さん！</li>-->
-          <li><%= link_to 'My page', user_path(current_user), class: 'nav-link text-light' %></li>
           <li><%= link_to 'About', about_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to 'My page', user_path(current_user), class: 'nav-link text-light' %></li>
           <li><%= link_to 'Users', users_path, class: 'nav-link text-light' %></li>
           <li><%= link_to 'Logb out', destroy_user_session_path, method: :delete, class: 'nav-link text-light' %></li>
         <% else %>

@@ -27,13 +27,13 @@
           <%= render partial: 'likes/like-btn', locals: {post: @post} %>
         </div>
         <% if @post.user == current_user %>
-        <div class="col-3 text-right"><%= link_to '', post_path(@post), class: 'fas fa-trash-alt fa-2x', method: :delete, "data-confirm" => "本当に消しますか？" %></div>
-        <div class="col-3 text-right"><%= link_to '', edit_post_path(@post.id), class: 'fas fa-cog fa-2x' %></div>
+        <div class="col-3 text-right"><%= link_to '', post_path(@post), class: 'all-btn fas fa-trash-alt fa-2x', method: :delete, "data-confirm" => "本当に消しますか？" %></div>
+        <div class="col-3 text-right"><%= link_to '', edit_post_path(@post.id), class: 'all-btn fas fa-cog fa-2x' %></div>
         <% end %>
       </div>
       <hr>
-      <!--コメントの非同期化-->
-      <div class="col post_comments">
+      <!--コメントの非同期-->
+      <div class="row post_comments">
         <%= render partial: 'post_comments/index', locals: {post: @post} %>
       </div>
       <div class="row">
@@ -41,16 +41,7 @@
       </div>
     </div>
     <div class="col-3 d-none d-lg-block">
-      <div class="row sidebar">
-        <div class="col test-center mt-4">
-          <%= form_with url:search_path, method: :get, local: true do |f| %>
-            <%= f.text_field 'search[value]' %>
-            <%= f.select 'search[model]', options_for_select({ "Post" => "post", "User" => "user" }) %>
-            <%= f.select 'search[how]', options_for_select({ "キーワード" => "partical", "完全一致" => "match" }) %>
-            <%= f.submit :'検索' %>
-          <% end %>
-        </div>
-      </div>
+      <%= render 'search/searchbar' %>
     </div>
   </div>
 </div>

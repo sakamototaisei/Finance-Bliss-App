@@ -3,6 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// 投稿の文字色など
+.introduction-link a {
+  color: #000;
+}
+.introduction-link a:hover {
+  color: #000;
+}
+.comment-link a {
+  color: #000;
+}
+.comment-link a:hover {
+  color: #000;
+}
+
+
 // サイドバーの固定
 .sidebar {
   height:100px;
@@ -71,4 +86,12 @@
     opacity: 1;
   transform: translateY(100px);
   }
+}
+
+// ゴミ箱btn編集btn戻るbtn
+.all-btn {
+  color: #333;
+}
+.all-btn:hover {
+  color: #333;
 }

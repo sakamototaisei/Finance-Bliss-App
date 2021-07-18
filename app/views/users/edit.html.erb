@@ -1,18 +1,34 @@
 <div class="container">
-  <div class="row">
+  <div class="row-8 py-5">
     <%= form_with model: @user, local:true do |f| %>
     <div class="col">
       <div class="row">
-        <div class="col-4"><%= link_to '', user_path(@user.id), class: 'fas fa-times fa-2x' %></div>
+        <div class="col-4"><%= link_to '', user_path(@user.id), class: 'all-btn fas fa-times fa-2x' %></div>
         <div class="col-4"><h4>プロフィールを編集</h4></div>
-        <div class="col-4"><%= f.submit '保存', class: 'btn btn-primary' %></div>
+        <div class="col-4"><%= f.submit '保存', class: 'btn btn-outline-dark' %></div>
       </div>
-      <div class="row"><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, class: "rounded-circle", fallback: "no_image.jpg", size: "100x100" %></div>
-      <div class="row"><%= f.attachment_field :profile_image, placeholder: "image" %></div>
-      <div class="row"><label for="inputName">名前</label></div>
-      <div class="row"><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %></div>
-      <div class="row"><label for="inputIntroduction">紹介文　（最大160文字）</label></div>
-      <div class="row"><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"紹介文", size: "30x5", class: "form-control" %></div>
+      <div class="row">
+        <div class="col">
+          <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, class: "rounded-circle", fallback: "no_image.jpg" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <%= f.attachment_field :profile_image, placeholder: "image" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputName">名前</label><br>
+          <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputIntroduction">紹介文　（最大160文字）</label>
+          <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"紹介文", size: "30x5", class: "form-control" %>
+        </div>
+      </div>
     </div>
     <% end %>
   </div>
