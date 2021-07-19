@@ -22,6 +22,12 @@
   padding: 0;
   box-sizing: border-;
  }
+
+// 英文字はみ出るのを防ぐ
+ body {
+  word-break: break-all;
+}
+
 // フラッシュメッセージ
 .notice {
   background-color: rgba(216, 219, 217, 0.4);
@@ -36,10 +42,12 @@
 
  // footer
  footer {
-  background-color: #000;
- }
- .footer-text {
+  width: 100%;
   color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
  }
  .twitter {
   color: #fff;
@@ -47,3 +55,38 @@
  footer a:hover {
   color: #00aeef;
  }
+ .wrapper{
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 148px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+
+
+// トップタイトルの切り替え
+@media screen and (max-width: 670px) {
+  .top-title {
+    display: none;
+  }
+  .top-title2 {
+    /*要素の配置*/
+    position:absolute;
+    width: 100%;
+    text-align: center;
+    /*要素を天地中央寄せ*/
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    /*見た目の調整*/
+    color:#fff;
+    text-shadow: 0 0 15px #666;
+    font-size: 85px;
+    letter-spacing: 0.1em;
+  }
+}
+@media screen and (min-width: 670px) {
+  .top-title2 {
+    display: none;
+  }
+}

@@ -1,13 +1,17 @@
 <% users.each do |user| %>
 <div class="row">
-  <div class="col-2">
+  <div class="col-12 col-sm-2">
     <%= link_to user_path(user.id) do %>
     <%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %>
     <% end %>
   </div>
   <div class="col-6">
-    <div class="row"><%= user.name %></div>
-    <div class="row"><%= user.introduction %></div>
+    <div class="row">
+      <div class="col"><h5><strong><%= user.name %></strong></h5></div>
+      </div>
+    <div class="row">
+      <div class="col d-none d-sm-block"><%= user.introduction %></div>
+    </div>
   </div>
   <% if user.id == current_user.id %>
   <% else %>

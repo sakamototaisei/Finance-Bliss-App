@@ -1,17 +1,18 @@
 <div class="container-fluid">
   <div class="row py-5">
-    <div class="col-3">
+    <div class="col-2 col-lg-3">
       <div class="row sidebar">
         <%= render 'users/sidebar' %>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-9 col-lg-6 ml-2">
         <div class="row">
           <div class="col-2"><%= link_to '', user_path(@user.id), class: 'all-btn fas fa-long-arrow-alt-left fa-3x' %></div>
-          <div class="col-2"><%= @user.name %></div>
+          <div class="col-2 d-block d-sm-none"></div>
+          <div class="col-12 col-md-10 col-lg-10"><h3><strong><%= @user.name %></strong></h3></div>
         </div>
-        <div class="row my-4">
-          <ul class="follow-tabs">
+        <div class="row py-4">
+          <ul class="col follow-tabs">
             <li class="active"><%= link_to "フォロー中", user_followings_path(@user.id) %></li>
             <li><%= link_to "フォロワー", user_followers_path(@user.id) %></li>
           </ul>

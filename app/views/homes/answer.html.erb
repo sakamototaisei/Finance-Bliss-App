@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container font-family">
   <div class="row">
     <div class="col pt-5 text-center">
       <h3>70歳までに3000万の資金を準備するには</h3>
@@ -6,12 +6,16 @@
   </div>
   <div class="row">
     <div class="col py-5 text-center">
-      <h1>毎月<strong><span><%= @result.ceil %>円</span></strong>積み立てていけば達成できます</h1>
+      <% if @result != 0 %>
+        <h1>毎月<strong><span><%= @result.ceil %>円</span></strong>積み立てていけば達成できます</h1>
+      <% else %>
+        <h3>正しく入力してください</h3>
+      <% end %>
     </div>
   </div>
   <div class="row text-center my-5">
-    <div class="col"><%= link_to'想像より低かった', new_user_registration_path, class: 'btn btn-outline-dark' %></div>
-    <div class="col"><%= link_to'高くて厳しい', save_path, class: 'btn btn-outline-dark' %></div>
+    <div class="col"><%= link_to'想像より低かった', new_user_registration_path, class: 'btn btn-outline-dark btn-block' %></div>
+    <div class="col"><%= link_to'高くて厳しい', save_path, class: 'btn btn-outline-dark btn-block' %></div>
   </div>
   <div class="row">
     <div class="col my-5">

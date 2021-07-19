@@ -4,6 +4,9 @@
 
 
 // 投稿の文字色など
+.introduction {
+  word-break: break-word;
+}
 .introduction-link a {
   color: #000;
 }
@@ -95,3 +98,11 @@
 .all-btn:hover {
   color: #333;
 }
+
+// 画像アップロードボタン
+.image-up-none {
+  display: none;
+}
+
+
+// 新規投稿モーダル表示

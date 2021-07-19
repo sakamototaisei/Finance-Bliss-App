@@ -1,4 +1,4 @@
-<div class="toppage">
+<div class="toppage font-family">
   <div class="container">
     <div class="row">
       <div class="col my-5">
@@ -8,7 +8,8 @@
     <div class="row">
       <div class="col my-5 text-center" id="form">
       <%= form_with url: answer_path, local:true do |f| %>
-        <h1>年齢を入力してください(数字のみ)</h1>
+        <h1>年齢を入力してください</h1>
+        <P>※対象年齢10〜69歳(数字のみ)</P>
         <div class="row">
           <div class="col pt-4 age-textfield">
             <%= f.text_field :age, class: "text-field" %>
@@ -30,7 +31,7 @@
   </div>
 </div>
 <!--このサイトの利用方法-->
-<div class="app-info pt-5">
+<div class="app-info pt-5 font-family">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
@@ -40,7 +41,7 @@
     <div class="row py-5">
       <div class="col-12 col-lg-7"><%= image_tag 'top10.png', size: "400x400" %></div>
       <div class="col-10-offset-1 col-lg-5 pt-4">
-        <p>
+        <p class="sub-text">
           お金を学ぶことは決していやらしいことではなく、自分や大切な人を幸せにするために必要な知識です。
           また金融トラブルも未然に回避することができます。
         </p>
@@ -48,7 +49,7 @@
     </div>
     <div class="row py-5">
       <div class="col-10-offset-1 col-lg-5 pt-4">
-        <p>
+        <p class="sub-text">
           このサイトの目的は金融リテラシーを高めることによって、みんなで幸せな未来に近づくことを目指しているサイトです。
         </p>
       </div>
@@ -57,7 +58,7 @@
     <div class="row py-5">
       <div class="col-12 col-lg-7"><%= image_tag 'top13.png', size: "400x300" %></div>
       <div class="col-10-offset-1 col-lg-5 pt-4">
-        <p>
+        <p class="sub-text">
           まずは資金計画や保険関係、金融資産運用、不動産関係、相続などの疑問に思ったことを投稿してみてください。
           疑問の回答が得られたり、他の方の疑問に答えられることがあれば積極的に回答してみましょう。
         </p>
@@ -65,7 +66,7 @@
     </div>
     <div class="row py-5">
       <div class="col-10-offset-1 col-lg-5 pt-4">
-        <p>
+        <p class="sub-text">
           また勉強して得た役立つ知識や情報、運用実績や時事情報などの自分のアウトプットの場として利用してください。
           お金に関係することを投稿することによりサイトの質を高めることができます。皆さんと一緒に作り上げていきましょう。
         </p>
@@ -75,14 +76,14 @@
     <div class="row py-5">
       <div class="col-12 col-lg-7"><%= image_tag 'top11.png', size: "400x300" %></div>
       <div class="col-10-offset-1 col-lg-5 pt-4">
-        <p>
+        <p class="sub-text">
           フォロー機能も活用して、たくさん交流をしてコミュニティーを広げていきましょう。
         </p>
       </div>
     </div>
     <div class="row py-5">
       <div class="col-10-offset-1 col-lg-5 pt-4">
-        <p>
+        <p class="sub-text">
           積み立て投資シミュレーションや投資先診断も参考にして、資産設計のスタートに役に立てください
         </p>
       </div>
@@ -91,7 +92,7 @@
     <div class="row">
       <div class="col-3"></div>
       <div class="col-10-offset-1 col-lg-5 pt-4">
-        <p>
+        <p class="sub-text">
           各々思い描く幸せは違うと思いますが、金融リテラシーを上げることにより金銭的不安、
           時間的不安、精神的不安の解消に少しでもご活用していただければ幸いです。
         </p>

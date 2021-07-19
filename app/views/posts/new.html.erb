@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="row">
+      <div class="row pt-5">
         <div class="col-2"></div>
-        <div class="col-8"><i class='fas fa-times fa-2x'></i></div>
+        <div class="col-8">
+          <%= link_to "", posts_path, class: "all-btn fas fa-times fa-2x" %>
+        </div>
         <div class="col-2"></div>
       </div>
       <%= form_with model: @post, local:true do |f| %>
@@ -19,7 +21,10 @@
       <div class="row">
         <div class="col-2"></div>
         <div class="col-7">
-          <%= f.attachment_field :image %>
+        <label>
+          <i class="fas fa-image fa-3x"></i>
+          <%= f.attachment_field :image, placeholder: "image", class: 'image-up-none' %>
+        </label>
         </div>
         <div class="col-3">
           <%= f.submit '投稿', class: 'btn btn-outline-dark' %>

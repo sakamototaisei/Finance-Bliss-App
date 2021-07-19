@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div class="row py-5">
-    <div class="col-3">
+    <div class="col-2 col-lg-3">
       <div class="row sidebar">
         <%= render 'users/sidebar' %>
       </div>
     </div>
-    <div class="col-8 col-lg-6">
+    <div class="col-9 col-lg-6 ml-2">
       <div class="row">
-        <div class="col-2"><%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
-        <div class="col-2"><%= @post.user.name %></div>
+        <div class="col-lg-2"><%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+        <div class="col-10 col-lg-2 pt-2"><h5><strong><%= @post.user.name %></strong></h5></div>
       </div>
       <div class="row">
         <div class="col-2"></div>
@@ -16,7 +16,7 @@
       </div>
       <div class="row">
         <div class="col-2"></div>
-        <div class="col-10 my-4"><%= @post.introduction %></div>
+        <div class="col-10 py-3"><%= @post.introduction %></div>
       </div>
       <div class="row">
         <div class="col-3 text-right comments-count<%= @post.id %>">
@@ -40,7 +40,7 @@
         <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: @post_comment } %>
       </div>
     </div>
-    <div class="col-3 d-none d-lg-block">
+    <div class="col-2 d-none d-lg-block">
       <%= render 'search/searchbar' %>
     </div>
   </div>

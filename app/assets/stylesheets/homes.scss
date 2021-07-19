@@ -17,16 +17,11 @@
     width: 150px;
     height: 150px;
 }
-
 .toppage {
     background-color: #fff;
 }
 .app-info {
     background-color: #d8d5d3;
-}
-#header{
-    position: relative;/*h1の中央寄せ配置の起点とするためのrelative*/
-    height: 100vh;/*高さを全画面にあわせる*/
 }
 video {
     width: 100%;
@@ -54,10 +49,16 @@ video {
     min-height: 100%;
     min-width: 100%;
 }
+#header{
+    position: relative;/*h1の中央寄せ配置の起点とするためのrelative*/
+    height: 100vh;/*高さを全画面にあわせる*/
+}
 /*見出し設定*/
-.title {
+.top-title {
     /*要素の配置*/
     position:absolute;
+    width: 100%;
+    text-align: center;
     /*要素を天地中央寄せ*/
     top: 50%;
     left: 50%;
@@ -83,7 +84,7 @@ video {
 .vertical-text {
     writing-mode: vertical-rl;
     margin-left: 100px;
-    letter-spacing: 0.2em
+    letter-spacing: 0.2em;
 }
 
 
@@ -162,3 +163,11 @@ video {
 .deposit-modal {
     display: none;
 }
+
+.investment-bg {
+}
+.investment {
+}
+
+
+// 投資診断結果ページ見出しレイアウト

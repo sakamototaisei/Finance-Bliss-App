@@ -1,18 +1,26 @@
-<div class="contaoner-fluid">
+<div class="container-fluid">
   <div class="row py-5">
-    <div class="col-3">
+    <div class="col-2 col-lg-3">
       <div class="row sidebar">
         <%= render 'users/sidebar' %>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-9 col-lg-6">
     <% if @model == "user" %>
     <% @datas.each do |user| %>
       <div class="row">
-        <div class="col-2"><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+        <div class="col-12 col-sm-2">
+          <%= link_to user_path(user.id) do %>
+          <%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %>
+          <% end %>
+        </div>
         <div class="col-6">
-          <div class="row"><%= link_to user.name, user_path(user.id) %></div>
-          <div class="row"><%= user.introduction %></div>
+          <div class="row">
+            <div class="col"><h5><strong><%= user.name %></strong></h5></div>
+          </div>
+          <div class="row">
+            <div class="col d-none d-sm-block"><%= user.introduction %></div>
+          </div>
         </div>
         <% if user.id == current_user.id %>
         <% else %>
@@ -36,20 +44,25 @@
     <% elsif @model == "post" %>
       <% @datas.each do |post| %>
       <div class="row">
-        <div class="col-2">
+        <div class="col-12 col-lg-2">
           <%= link_to user_path(post.user.id) do %>
           <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %>
           <% end %>
         </div>
-        <div class="col-2"><%= post.user.name %></div>
+        <div class="col-6 col-md-2"><h5><strong><%= post.user.name %></strong></h5></div>
+        <div class="col-6 col-md-5"><%= post.created_at.strftime('%Y/%m/%d') %></div>
       </div>
       <div class="row">
         <div class="col-2"></div>
-        <div class="col-10"><%= attachment_image_tag post, :image, format:'jpg', width: '100%', height: '80%' %></div>
+        <div class="col-10">
+          <%= link_to post_path(post.id) do %>
+          <%= attachment_image_tag post, :image, format:'jpg', width: '100%', height: '80%' %>
+          <% end %>
+        </div>
       </div>
       <div class="row">
         <div class="col-2"></div>
-        <div class="col-10 my-4 introduction-link"><%= link_to post.introduction, post_path(post.id) %></div>
+        <div class="col-10 py-4 introduction-link"><%= link_to post.introduction, post_path(post.id) %></div>
       </div>
       <div class="row">
         <div class="col-3"></div>
@@ -69,3 +82,4 @@
       <%= render 'search/searchbar' %>
     </div>
   </div>
+</div>

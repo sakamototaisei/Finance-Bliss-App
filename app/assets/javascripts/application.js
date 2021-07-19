@@ -95,7 +95,6 @@ $(document).on('turbolinks:load', function(){
 });
 
 
-
 // topページ移動
 //スクロールした際の動きを関数でまとめる
 $(document).on('turbolinks:load', function(){
@@ -181,3 +180,5 @@ $(document).on('turbolinks:load', function() {
   });
 });
 
+
+// 画像を投稿前プレビュー表示
