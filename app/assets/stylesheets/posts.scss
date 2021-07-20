@@ -29,6 +29,12 @@
   position: sticky;
 }
 
+.sidebar-comment {
+  height:200px;
+  top:100px;
+  position: -webkit-sticky;
+  position: sticky;
+}
 /*========= ページトップのためのCSS ===============*/
 /*リンクの形状*/
 #page-top a{
@@ -105,4 +111,7 @@
 }
 
 
-// 新規投稿モーダル表示
+// コメントモーダル表示
+.hide-area{
+	display: none;
+}

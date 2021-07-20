@@ -181,4 +181,10 @@ $(document).on('turbolinks:load', function() {
 });
 
 
-// 画像を投稿前プレビュー表示
+// コメントモーダル表示
+$(document).on('turbolinks:load', function() {
+  $(".modal-show").modaal({
+  	overlay_close:true,//モーダル背景クリック時に閉じるか
+  	hide_close: true, // 閉じるボタンを隠す
+  });
+});

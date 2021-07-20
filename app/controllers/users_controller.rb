@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user.id)
     else
       @user = User.find(params[:id])
-      flash.now[:alert] = "名前を入力してください"
+      flash.now[:alert] = "正しく情報を入力してください"
       render :edit
     end
   end

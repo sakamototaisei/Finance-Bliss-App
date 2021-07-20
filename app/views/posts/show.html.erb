@@ -2,12 +2,34 @@
   <div class="row py-5">
     <div class="col-2 col-lg-3">
       <div class="row sidebar">
-        <%= render 'users/sidebar' %>
+        <div class="col">
+          <%= render 'users/sidebar' %>
+          <div class="row">
+            <div class="col">
+              <a href="#comment-show-modal" class="modal-show"><i class="all-btn fas fa-comments fa-2x d-lg-none"></i></a>
+            </div>
+          </div>
+          <div class="hide-area" id="comment-show-modal">
+            <div class="row">
+              <div class="col">
+              (最大300文字数)<br>
+              <%= form_with model:[@post, @post_comment] do |f| %>
+                <%= f.text_area :comment, size: "30x5", placeholder: "コメントをここに" %><br>
+                <%= f.submit "送信", class: 'btn btn-outline-dark' %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-9 col-lg-6 ml-2">
       <div class="row">
-        <div class="col-lg-2"><%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
+        <div class="col-lg-2">
+          <%= link_to user_path(@post.user.id) do %>
+          <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, class: "profile-image rounded-circle", fallback: "no_image.jpg", size: "50x50" %>
+          <% end %>
+        </div>
         <div class="col-10 col-lg-2 pt-2"><h5><strong><%= @post.user.name %></strong></h5></div>
       </div>
       <div class="row">
@@ -19,16 +41,19 @@
         <div class="col-10 py-3"><%= @post.introduction %></div>
       </div>
       <div class="row">
-        <div class="col-3 text-right comments-count<%= @post.id %>">
-          <i class="far fa-comment"></i> <%= @post.post_comments.count %>
+        <div class="col-3 text-right">
+          <a href="#comment-show-modal" class="modal-show"><i class="all-btn far fa-comment"></i></a>
+        </div>
+        <div class="col-1 text-left comments-count<%= @post.id %>">
+          <%= @post.post_comments.count %>
         </div>
         <!--いいねの非同期-->
         <div class="col-3 text-right like-btn<%= @post.id %>">
           <%= render partial: 'likes/like-btn', locals: {post: @post} %>
         </div>
         <% if @post.user == current_user %>
-        <div class="col-3 text-right"><%= link_to '', post_path(@post), class: 'all-btn fas fa-trash-alt fa-2x', method: :delete, "data-confirm" => "本当に消しますか？" %></div>
-        <div class="col-3 text-right"><%= link_to '', edit_post_path(@post.id), class: 'all-btn fas fa-cog fa-2x' %></div>
+        <div class="col-2 text-right"><%= link_to '', post_path(@post), class: 'all-btn fas fa-trash-alt fa-lg', method: :delete, "data-confirm" => "本当に消しますか？" %></div>
+        <div class="col-2 text-right"><%= link_to '', edit_post_path(@post.id), class: 'all-btn fas fa-cog fa-lg' %></div>
         <% end %>
       </div>
       <hr>
@@ -36,12 +61,10 @@
       <div class="row post_comments">
         <%= render partial: 'post_comments/index', locals: {post: @post} %>
       </div>
-      <div class="row">
-        <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: @post_comment } %>
-      </div>
     </div>
     <div class="col-2 d-none d-lg-block">
       <%= render 'search/searchbar' %>
+      <%= render partial: 'post_comments/form', locals: { post: @post, post_comment: @post_comment } %>
     </div>
   </div>
 </div>

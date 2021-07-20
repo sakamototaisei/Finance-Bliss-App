@@ -12,7 +12,7 @@ class PostsController < ApplicationController
       redirect_to posts_path
     else
       @post = Post.new
-      flash.now[:alert] = "投稿内容の記述をしてください"
+      flash.now[:alert] = "正しく投稿内容の記述をしてください"
       render :new
     end
   end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post.id)
     else
       @post = Post.find(params[:id])
-      flash.now[:alert] = "画像本文空欄での保存はできません"
+      flash.now[:alert] = "正しく投稿内容の記述をしてください"
       render :edit
     end
   end

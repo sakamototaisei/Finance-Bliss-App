@@ -1,7 +1,9 @@
 <div class="row">
-  <div class="col-4"><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "100x100" %></div>
+  <div class="col-4">
+    <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "100x100" %>
+  </div>
   <div class="col-3"></div>
-  <% if @user.id == current_user.id %>
+  <% if user.id == current_user.id %>
     <div class="col-4">
       <%= link_to 'プロフィールの編集', edit_user_path(user.id), class: 'btn btn-outline-dark d-none d-lg-block' %>
       <%= link_to '', edit_user_path(user.id), class: 'all-btn fas fa-user-edit fa-2x d-lg-none' %>

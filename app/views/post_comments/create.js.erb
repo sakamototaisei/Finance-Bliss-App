@@ -1,3 +1,3 @@
 $(".comments-count<%= @post.id %>").html(" <%= @post.post_comments.count %>");
 $(".post_comments").html("<%= j(render 'post_comments/index', post: @post) %>");
-$("#post_comment_comment").val("");
+$("textarea").val("");
