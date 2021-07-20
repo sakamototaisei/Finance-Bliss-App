@@ -17,7 +17,7 @@ class User < ApplicationRecord
   # 自分がフォローしている人一覧で返す
   has_many :followings, through: :relationships, source: :followed
   validates :name, presence: true
-  validates :name, length: { maximum: 30 }
+  validates :name, length: { maximum: 20 }
   validates :introduction, length: { maximum: 160 }
 
 

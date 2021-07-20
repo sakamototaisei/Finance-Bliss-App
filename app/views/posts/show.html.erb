@@ -30,7 +30,7 @@
           <%= attachment_image_tag @post.user, :profile_image, :fill, 60, 60, class: "profile-image rounded-circle", fallback: "no_image.jpg", size: "50x50" %>
           <% end %>
         </div>
-        <div class="col-10 col-lg-2 pt-2"><h5><strong><%= @post.user.name %></strong></h5></div>
+        <div class="col-10 col-lg-8 pt-2"><h5><strong><%= @post.user.name %></strong></h5></div>
       </div>
       <div class="row">
         <div class="col-2"></div>
@@ -38,13 +38,13 @@
       </div>
       <div class="row">
         <div class="col-2"></div>
-        <div class="col-10 py-3"><%= @post.introduction %></div>
+        <div class="col-8 py-3"><%= @post.introduction %></div>
       </div>
       <div class="row">
         <div class="col-3 text-right">
           <a href="#comment-show-modal" class="modal-show"><i class="all-btn far fa-comment"></i></a>
         </div>
-        <div class="col-1 text-left comments-count<%= @post.id %>">
+        <div class="col-4 col-md-1 text-left comments-count<%= @post.id %>">
           <%= @post.post_comments.count %>
         </div>
         <!--いいねの非同期-->
@@ -52,8 +52,9 @@
           <%= render partial: 'likes/like-btn', locals: {post: @post} %>
         </div>
         <% if @post.user == current_user %>
-        <div class="col-2 text-right"><%= link_to '', post_path(@post), class: 'all-btn fas fa-trash-alt fa-lg', method: :delete, "data-confirm" => "本当に消しますか？" %></div>
-        <div class="col-2 text-right"><%= link_to '', edit_post_path(@post.id), class: 'all-btn fas fa-cog fa-lg' %></div>
+        <div class="col-4 d-block d-md-none"></div>
+        <div class="col-3 col-md-2 text-right"><%= link_to '', post_path(@post), class: 'all-btn fas fa-trash-alt fa-lg', method: :delete, "data-confirm" => "本当に消しますか？" %></div>
+        <div class="col-3 col-md-2 text-right"><%= link_to '', edit_post_path(@post.id), class: 'all-btn fas fa-cog fa-lg' %></div>
         <% end %>
       </div>
       <hr>

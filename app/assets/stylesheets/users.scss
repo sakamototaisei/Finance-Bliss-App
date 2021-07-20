@@ -56,6 +56,8 @@
 .follow-btn:hover span:nth-child(2){
   opacity:1;/*不透明に*/
 }
+
+
 /*表示するテキストが切り替わる*/
 .btntextchange{
     /*テキストの基点とするためrelativeを指定*/
@@ -68,15 +70,16 @@
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  color: #333;
+  background-color: #333;
+  color: #fff;
   outline: none;
     /*アニメーションの指定*/
   transition: all .2s;
 }
 /*hoverした際の変化*/
 .btntextchange:hover{
-  background:#333;
-  color:#fff;
+  background:#fff;
+  color:#333;
 }
 .btntextchange span{
     /*絶対配置でテキストの位置を決める*/
@@ -105,7 +108,6 @@
 
 
 // ユーザー詳細の投稿一覧いいね一覧の切り替え
-
 ul, li {
   list-style-type: none;
   padding: 0;

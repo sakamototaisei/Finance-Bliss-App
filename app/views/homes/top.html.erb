@@ -9,7 +9,7 @@
       <div class="col my-5 text-center" id="form">
       <%= form_with url: answer_path, local:true do |f| %>
         <h1>年齢を入力してください</h1>
-        <P>※対象年齢10〜69歳(数字のみ)</P>
+        <P>※対象年齢10〜69歳(英数字のみ)</P>
         <div class="row">
           <div class="col pt-4 age-textfield">
             <%= f.text_field :age, class: "text-field" %>

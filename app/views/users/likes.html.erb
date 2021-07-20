@@ -17,7 +17,7 @@
         </ul>
       </div>
       <!--ログインユーザーがいいねした一覧-->
-      <% @likes.each do |like| %>
+      <% @likes.reverse.each do |like| %>
       <% post = Post.find_by(id: like.post_id) %>
       <div class="row">
         <div class="col-12 col-lg-2">
@@ -58,3 +58,4 @@
       <%= render 'search/searchbar' %>
     </div>
   </div>
+</div>
