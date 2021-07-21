@@ -3,11 +3,11 @@ require 'rails_helper'
 
 RSpec.describe 'Postモデルのテスト', type: :model do
   describe 'バリデーションのテスト' do
-    
+
     # factoriesで作成したダミーデータを使用します。
     let(:user) { FactoryBot.create(:user) }
-    let(:post) { build(:post, user_id: user.id) }
-    
+    let!(:post) { build(:post, user_id: user.id) }
+
     # test_postを作成し、空欄で登録ができるか確認します。
     subject { test_post.valid? }
     let(:test_post) { post }
@@ -16,11 +16,11 @@ RSpec.describe 'Postモデルのテスト', type: :model do
     context 'introductionカラム' do
       it '300文字以下であること: 300文字はOK' do
         post.introduction = Faker::Lorem.characters(number:300)
-        expect(post.valid?).to eq true
+        is_expected.to eq true
       end
-      it '300文字以下であること: 301文字はNG' do
+      it '300文字以下であること: 301文字はOUT' do
         post.introduction = Faker::Lorem.characters(number:301)
-        expect(post.valid?).to eq false
+        is_expected.to eq false
     end
   end
 end

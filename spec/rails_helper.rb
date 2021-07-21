@@ -61,5 +61,9 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # user = create(:user)のようにDB登録やモデルのビルドができる
   config.include FactoryBot::Syntax::Methods
+  # sign_inメソッドが使用できるようになる
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
