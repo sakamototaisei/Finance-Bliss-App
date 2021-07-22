@@ -10,7 +10,8 @@
     <div class="col-9 col-lg-6 ml-2">
       <div class="row pb-4">
         <div class="col">
-          <h3><%= @users.count %>名のユーザーと繋がりましょう！</h3>
+          <% new_users = @users.count - 1 %>
+          <h3><%= new_users %>名のユーザーと繋がりましょう！</h3>
         </div>
       </div>
       <%= render 'users/index', users: @users %>

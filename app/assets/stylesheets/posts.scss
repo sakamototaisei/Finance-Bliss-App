@@ -3,6 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+// 投稿の一覧の装飾
+.posts-bg {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 0 0 8px gray;
+  transition: .5s;
+}
+.posts-bg:hover {
+  transform: translateY(-6px);
+}
+
+
 // 投稿の文字色など
 .introduction {
   word-break: break-word;

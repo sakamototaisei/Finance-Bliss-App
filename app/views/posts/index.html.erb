@@ -1,13 +1,13 @@
 <div class="container-fluid min-vh-100">
   <div class="row py-5">
-    <div class="col-3">
+    <div class="col-2 col-lg-3">
       <div class="row sidebar">
         <div class="col">
           <%= render 'users/sidebar' %>
         </div>
       </div>
     </div>
-    <div class="col-8 col-lg-6 main-content ml-2">
+    <div class="col-9 col-lg-6 main-content ml-2">
       <!--投稿一覧-->
       <%= render 'posts/index', posts: @posts %>
     </div>

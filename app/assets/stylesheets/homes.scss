@@ -57,6 +57,9 @@ video {
 }
 
 // aboutページ
+.about-height {
+    height: 500px;
+}
 // サブタイトル
 .about-subtitle {
     background-color: #f4f2f1;
@@ -146,6 +149,12 @@ video {
 }
 .deposit-modal {
     display: none;
+}
+
+// メリットデメリットテーブル
+.table-header {
+    background-color: #5b75a6;
+    color: #fff;
 }
 
 
