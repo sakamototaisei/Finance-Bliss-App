@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container min-vh-100">
   <div class="row">
     <div class="col pt-4">
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -9,7 +9,7 @@
       <h4>登録をして金融リテラシーを高めていきましょう</h4>
     </div>
   </div>
-  <div class="row">
+  <div class="row pb-3">
     <div class="col-3"></div>
     <div class="col-6 pt-3 pb-5">
       <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
@@ -45,7 +45,7 @@
             <%= link_to "戻る", root_path, class: "btn btn-outline-secondary btn-block" %>
           </div>
           <div class="col-8 col-lg-9 pb-3">
-            <%= f.submit "登録する", class: "btn btn-outline-dark btn-block" %>
+            <%= f.submit "登録する", class: "btn new-btn2 btn-block" %>
           </div>
         </div>
       <% end %>

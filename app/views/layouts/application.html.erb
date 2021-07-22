@@ -17,11 +17,13 @@
       <% else %>
         <%= render 'layouts/header' %>
       <% end %>
+    <div class="main-bg font-family">
       <%= render 'layouts/flash' %>
       <%= yield %>
       <%= render 'layouts/footer' %>
+    </div>
+    </div>
       <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Modaal/0.4.4/js/modaal.min.js"></script>
-    </div>
   </body>
 </html>

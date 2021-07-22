@@ -1,11 +1,11 @@
-<div class="container">
-  <div class="row-8 py-5">
+<div class="container min-vh-100">
+  <div class="row-8 pt-5">
     <%= form_with model: @user, local:true do |f| %>
     <div class="col">
       <div class="row">
         <div class="col-3"><%= link_to '', user_path(@user.id), class: 'all-btn fas fa-times fa-2x' %></div>
         <div class="col-6"><h4>プロフィールを編集</h4></div>
-        <div class="col-3"><%= f.submit '保存', class: 'btn btn-outline-dark' %></div>
+        <div class="col-3"><%= f.submit '保存', class: 'btn new-btn' %></div>
       </div>
       <div class="row py-4">
         <div class="col">

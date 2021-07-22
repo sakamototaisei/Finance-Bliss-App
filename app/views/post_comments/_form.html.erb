@@ -3,7 +3,7 @@
   (最大300文字数)<br>
   <%= form_with model:[post, post_comment] do |f| %>
     <%= f.text_area :comment, size: "30x5", placeholder: "コメントをここに" %><br>
-    <%= f.submit "送信", class: 'btn btn-outline-dark' %>
+    <%= f.submit "送信", class: 'btn new-btn' %>
   <% end %>
   </div>
 </div>

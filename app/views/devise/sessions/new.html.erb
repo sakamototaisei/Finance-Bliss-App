@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container min-vh-100">
   <div class="row">
     <div class="col pt-5 text-center">
       <h2>会員登録を既にされている方</h2>
     </div>
   </div>
-  <div class="row">
+  <div class="row pb-5">
     <div class="col-3"></div>
     <div class="col-6 pt-3">
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
@@ -33,12 +33,12 @@
           <%= link_to "戻る", root_path, class: "btn btn-outline-secondary btn-block" %>
         </div>
         <div class="col-8 col-lg-9 pb-3">
-          <%= f.submit "ログイン", class: 'btn btn-outline-dark btn-block' %>
+          <%= f.submit "ログイン", class: 'btn new-btn2 btn-block' %>
         </div>
       </div>
       <% end %>
-      <div class="row">
-        <div class="col py-4">
+      <div class="row pb-5">
+        <div class="col pb-5">
           <%= render "devise/shared/links" %>
         </div>
       </div>

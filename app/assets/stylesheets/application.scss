@@ -23,10 +23,37 @@
   box-sizing: border-;
  }
 
+// フォント設定
+.font-family {
+    font-family: Hiragino Maru Gothic ProN W4;
+}
 // 英文字はみ出るのを防ぐ
  body {
   word-break: break-all;
 }
+.main-bg {
+  background-color: #f2f0e6;
+}
+
+
+// bootstrapのボタン
+.btn.new-btn {
+  background-color: #5b75a6;
+  color: #fff;
+}
+
+.btn.new-btn2 {
+  background-color: #f2f0e6;
+  color: #000;
+  border: 1px solid #000;
+}
+.btn.new-btn2:hover {
+  background-color: #5b75a6;
+  color: #fff;
+  border: 1px solid #5b75a6;
+}
+
+
 
 // フラッシュメッセージ
 .notice {

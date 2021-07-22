@@ -11,7 +11,7 @@
 }
 
 
-/*表示するテキストが切り替わる*/
+// フォローからフォローする
 .follow-btn {
     /*テキストの基点とするためrelativeを指定*/
   position: relative;
@@ -30,8 +30,9 @@
 }
 /*hoverした際の変化*/
 .follow-btn:hover{
-  background:#333;
-  color:#fff;
+  border: 1px solid #5b75a6;
+  background: #5b75a6;
+  color: #fff;
 }
 .follow-btn span{
     /*絶対配置でテキストの位置を決める*/
@@ -58,19 +59,19 @@
 }
 
 
-/*表示するテキストが切り替わる*/
+// フォロー中からフォロー解除
 .btntextchange{
     /*テキストの基点とするためrelativeを指定*/
   position: relative;
     /*ボタンの形状*/
-  border: 1px solid #555;
+  border: 1px solid #5b75a6;
   border-radius: 25px;
   min-width: 130px;
   padding: 20px;
   text-align: center;
   display: inline-block;
   text-decoration: none;
-  background-color: #333;
+  background-color: #5b75a6;
   color: #fff;
   outline: none;
     /*アニメーションの指定*/
@@ -78,8 +79,9 @@
 }
 /*hoverした際の変化*/
 .btntextchange:hover{
-  background:#fff;
-  color:#333;
+  border: 1px solid #cf003c;
+  background: #cf003c;
+  color: #fff;
 }
 .btntextchange span{
     /*絶対配置でテキストの位置を決める*/
@@ -115,14 +117,14 @@ ul, li {
 }
 .user-tabs {
   margin-top: 40px;
-  background-color: white;
+  background-color: #f2f0e6;
   overflow: hidden;
 }
 .user-tabs li {
   float: left;
 }
 .user-tabs li.active {
-  border-bottom: 2px solid #3ecdc6;
+  border-bottom: 2px solid #5b75a6;
 }
 .user-tabs li.active a {
   color: #57575f;
