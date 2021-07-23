@@ -1,39 +1,44 @@
-  <div class="container">
-    <div class="row mt-5">
-      <div class="col-2"></div>
-      <div class="col-8 mb-2">
-        <p>下記の10項目の中で当てはまるものにチェックしてください</p>
-        <form>
-        <p id="checkList">
-          <input type="checkbox" name="pref" value="1" id="1"> <label for="1">自分の手取り年収を把握している</label><br>
-          <input type="checkbox" name="pref" value="2" id="2"> <label for="2">去年1年間いくら貯めたかすぐに言える</label><br>
-          <input type="checkbox" name="pref" value="3" id="3"> <label for="3">今いくら貯まっているかを把握している</label><br>
-          <input type="checkbox" name="pref" value="4" id="4"> <label for="4">毎月、積み立てをしている</label><br>
-          <input type="checkbox" name="pref" value="5" id="5"> <label for="5">毎月の支出の予算を決めている</label><br>
-          <input type="checkbox" name="pref" value="6" id="6"> <label for="6">大きな買い物をするときは事前に値段などを調べて比較する</label><br>
-          <input type="checkbox" name="pref" value="7" id="7"> <label for="7">何のために、いつまでにいくら貯めるか目標がある</label><br>
-          <input type="checkbox" name="pref" value="8" id="8"> <label for="8">ATM手数料をなるべくかけないようにする</label><br>
-          <input type="checkbox" name="pref" value="9" id="9"> <label for="9">家計簿をつけている</label><br>
-          <input type="checkbox" name="pref" value="10" id="10"> <label for="10">銀行の通帳やクレジットカードの明細をこまめに確認している</label><br>
-        </p>
-        <div class="total"></div>
-        </form>
-      </div>
-      <div class="col-2"></div>
+<div class="container min-vh-100">
+  <div class="row pt-5">
+    <div class="col-2"></div>
+    <div class="col-8 mb-2">
+      <p>下記の10項目の中で当てはまるものにチェックしてください</p>
+      <form>
+      <p id="checkList">
+        <input type="checkbox" name="pref" value="1" id="1"> <label for="1">自分の手取り年収を把握している</label><br>
+        <input type="checkbox" name="pref" value="2" id="2"> <label for="2">去年1年間いくら貯めたかすぐに言える</label><br>
+        <input type="checkbox" name="pref" value="3" id="3"> <label for="3">今いくら貯まっているかを把握している</label><br>
+        <input type="checkbox" name="pref" value="4" id="4"> <label for="4">毎月、積み立てをしている</label><br>
+        <input type="checkbox" name="pref" value="5" id="5"> <label for="5">毎月の支出の予算を決めている</label><br>
+        <input type="checkbox" name="pref" value="6" id="6"> <label for="6">大きな買い物をするときは事前に値段などを調べて比較する</label><br>
+        <input type="checkbox" name="pref" value="7" id="7"> <label for="7">何のために、いつまでにいくら貯めるか目標がある</label><br>
+        <input type="checkbox" name="pref" value="8" id="8"> <label for="8">ATM手数料をなるべくかけないようにする</label><br>
+        <input type="checkbox" name="pref" value="9" id="9"> <label for="9">家計簿をつけている</label><br>
+        <input type="checkbox" name="pref" value="10" id="10"> <label for="10">銀行の通帳やクレジットカードの明細をこまめに確認している</label><br>
+      </p>
+      <div class="total"></div>
+      </form>
     </div>
-    <div class="row">
-      <div class="col text-center">
-        <h2><strong>チェックが7個以上でお金を貯められるタイプです</strong></h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <p>こちらの項目は貯蓄を増やしていくための有効な心がけやテクニックともなります。貯蓄ができなくて悩んでいる方は、できていない項目を確認をして実行してみましょう！</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col text-center mb-4">
-        <%= link_to'もっと情報を知りたい方', new_user_registration_path, class: 'btn btn-primary' %>
-      </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row">
+    <div class="col text-center">
+      <h2><strong>チェックが7個以上でお金を貯められるタイプです</strong></h2>
     </div>
   </div>
+  <div class="row">
+    <div class="col">
+      <p>こちらの項目は貯蓄を増やしていくための有効な心がけやテクニックともなります。貯蓄ができなくて悩んでいる方は、できていない項目を確認をして実行してみましょう！</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-4">
+      <%= link_to "戻る", root_path, class: "btn btn-outline-secondary btn-block" %>
+    </div>
+    <div class="col-4 text-center pb-5">
+      <%= link_to'もっと情報を知りたい方', new_user_session_path, class: 'btn new-btn btn-block' %>
+    </div>
+     <div class="col-2"></div>
+  </div>
+</div>

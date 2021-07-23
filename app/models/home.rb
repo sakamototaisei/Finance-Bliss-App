@@ -123,7 +123,7 @@ class Home < ApplicationRecord
     when 69 then
       return (30000000 * 1) / 12
     else
-      return "対象外です"
+      return 0
     end
   end
 

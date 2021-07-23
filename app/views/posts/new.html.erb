@@ -1,8 +1,36 @@
-<h1>新規投稿フォーム</h1>
-<%= form_with model: @post, local:true do |f| %>
-  <h4>内容</h4>
-  <%= f.text_area :introduction, placeholder: "金融リテラシーをあげていきましょう！", size: "30x5", class: "form-control" %>
-  <h4>画像</h4>
-  <%= f.attachment_field :image %>
-  <%= f.submit '投稿' %>
-<% end %>
+<div class="container min-vh-100">
+  <div class="row">
+    <div class="col">
+      <div class="row pt-5">
+        <div class="col-2"></div>
+        <div class="col-8">
+          <%= link_to "", posts_path, class: "all-btn fas fa-times fa-2x" %>
+        </div>
+        <div class="col-2"></div>
+      </div>
+      <%= form_with model: @post, local:true do |f| %>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+          (最大300文字数)<br>
+          <%= f.text_area :introduction, placeholder: "金融リテラシーをあげていきましょう！", size: "30x5", class: "js-text form-control" %>
+          <P class="js-text-count pull-right"></P>
+        </div>
+        <div class="col-2"></div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-7">
+        <label>
+          <i class="fas fa-image fa-3x"></i>
+          <%= f.attachment_field :image, placeholder: "image", class: 'image-up-none' %>
+        </label>
+        </div>
+        <div class="col-3">
+          <%= f.submit '投稿', class: 'btn new-btn' %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

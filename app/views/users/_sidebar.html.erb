@@ -1,4 +1,24 @@
-<%= link_to 'ホーム', posts_path, class: 'btn btn-primary' %><br>
-<%= link_to 'プロフィール', user_path(current_user), class: 'btn btn-primary' %><br>
-<%= link_to '投資先診断', investment_path, class: 'btn btn-primary' %><br>
-<%= link_to '新規投稿', new_post_path, class: 'btn btn-primary' %>
+<div class="row">
+  <div class="col pb-4">
+    <%= link_to 'ホーム', posts_path, class: 'd-none d-lg-block btn btn-outline-dark' %>
+    <%= link_to '', posts_path, class: 'all-btn fas fa-home fa-2x d-lg-none ' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col pb-4">
+    <%= link_to 'プロフィール', user_path(current_user), class: 'd-none d-lg-block btn btn-outline-dark' %>
+    <%= link_to '', user_path(current_user), class: 'all-btn fas fa-user fa-2x d-lg-none' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col pb-4">
+    <%= link_to '投資先診断', investment_path, class: 'd-none d-lg-block btn btn-outline-dark' %>
+    <%= link_to '', investment_path, class: 'all-btn fas fa-hand-holding-usd fa-2x d-lg-none' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col pb-4">
+    <%= link_to '新規投稿', new_post_path, class: 'd-none d-lg-block btn new-btn' %>
+    <%= link_to '', new_post_path, class: 'all-btn fas fa-mail-bulk fa-2x d-lg-none' %>
+  </div>
+</div>

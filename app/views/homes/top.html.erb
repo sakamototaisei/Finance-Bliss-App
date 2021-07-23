@@ -1,96 +1,115 @@
-<div class="container">
-  <div class="row">
-    <div class="col my-5">
-      <h2><strong>70歳までに3000万の資産を準備するために毎月いくら積み立てれば良いか</strong></h2>
+<div class="toppage font-family main-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col my-5">
+        <h2><strong>70歳までに3000万の資産を準備するために毎月いくら積み立てれば良いか</strong></h2>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col my-5 text-center">
-    <%= form_with url: answer_path(@age), local:true do |f| %>
-      <h1>年齢を入力してください</h1>
-      <%= f.text_area :age, size: "30x5" %><br>
-      <%= f.submit '結果を見る', class: 'btn btn-primary' %>
-    <% end %>
+    <div class="row">
+      <div class="col my-5 text-center" id="form">
+      <%= form_with url: answer_path, local:true do |f| %>
+        <h1>年齢を入力してください</h1>
+        <P>※対象年齢10〜69歳(英数字のみ)</P>
+        <div class="row">
+          <div class="col pt-4 age-textfield">
+            <%= f.text_field :age, class: "text-field" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col pt-4">
+            <%= f.submit '結果を見る', class: 'btn new-btn' %>
+          </div>
+        </div>
+      <% end %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col my-5">
-      <p>※将来的に現役の年齢が延び70歳と仮定・2000万問題と言われていますがこの先さらに必要な額が見込まれることを仮定し3000万・インデックスファンド年利5%を想定し減債基金係数を使って計算しています。</p>
+    <div class="row">
+      <div class="col my-5">
+        <p>※将来的に現役の年齢が延び70歳と仮定・2000万問題と言われていますがこの先さらに必要な額が見込まれることを仮定し
+        3000万・インデックスファンド年利5%を想定し減債基金係数を使って計算しています。</p>
+      </div>
     </div>
   </div>
 </div>
-
+<hr>
 <!--このサイトの利用方法-->
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <h1>このサイトについて</h1>
+<div class="pt-5 font-family main-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1>For beginner</h1>
+      </div>
     </div>
-  </div>
-  <div class="row my-5">
-    <div class="col"><%= image_tag 'top10.png', size: "400x400" %></div>
-    <div class="col">
-      <p>
-        お金を学ぶことは決していやらしいことではなく、自分や大切な人を幸せにするために必要な知識です。
-        また金融トラブルも未然に回避することができます。
-      </p>
+    <div class="row py-5 text-center">
+      <div class="col-12 col-lg-7"><%= image_tag 'top4.png', size: "400x400" %></div>
+      <div class="col-2 d-lg-none"></div>
+      <div class="col-8 col-lg-5 pt-4 text-left">
+        <p class="sub-text">
+          お金を学ぶことは決していやらしいことではなく、自分や大切な人を<span class="under">幸せにするために必要な知識です。</span>
+          また金融トラブルも未然に回避することができます。
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="row my-5">
-    <div class="col">
-      <p>
-        このサイトの目的は金融リテラシーを高めることによって、みんなで幸せな未来に近づくことを目指しているサイトです。
-      </p>
+    <div class="row py-5 text-center">
+      <div class="col-2 d-lg-none"></div>
+      <div class="col-8 col-lg-5 py-4">
+        <p class="sub-text text-left">
+          このサイトの目的は<span class="under">金融リテラシー</span>を高めることによって、みんなで幸せな未来に近づくことを目指しているサイトです。
+        </p>
+      </div>
+      <div class="col-12 col-lg-7"><%= image_tag 'top2.png', size: "400x300" %></div>
     </div>
-    <div class="col"><%= image_tag 'top4.png', size: "400x300" %></div>
-  </div>
-  <div class="row my-5">
-    <div class="col"><%= image_tag 'top13.png', size: "400x300" %></div>
-    <div class="col">
-      <p>
-        まずは資金計画や保険関係、金融資産運用、不動産関係、相続などの疑問に思ったことを投稿してみてください。
-        疑問の回答が得られたり、他の方の疑問に答えられることがあれば積極的に回答してみましょう。
-      </p>
+    <div class="row py-5 text-center">
+      <div class="col-12 col-lg-7"><%= image_tag 'top6.png', size: "400x300" %></div>
+      <div class="col-2 d-lg-none"></div>
+      <div class="col-8 col-lg-5 pt-5">
+        <p class="sub-text text-left">
+          まずは資金計画や保険関係、金融資産運用、不動産関係、相続などの疑問に思ったことを投稿してみてください。
+          疑問の回答が得られたり、他の方の疑問に答えられることがあれば積極的に回答してみましょう。
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="row my-5">
-    <div class="col">
-      <p>
-        また勉強して得た役立つ知識や情報、運用実績や時事情報などの自分のアウトプットの場として利用してください。
-        お金に関係することを投稿することによりサイトの質を高めることができます。皆さんと一緒に作り上げていきましょう。
-      </p>
+    <div class="row py-5 text-center">
+      <div class="col-2 d-lg-none"></div>
+      <div class="col-8 col-lg-5 pt-4">
+        <p class="sub-text text-left">
+          また勉強して得た役立つ知識や情報、運用実績や時事情報などの自分のアウトプットの場として利用してください。
+          お金に関係することを投稿することによりサイトの質を高めることができます。皆さんと一緒に作り上げていきましょう。
+        </p>
+      </div>
+      <div class="col-12 col-lg-7 pb-5"><%= image_tag 'top1.png', size: "400x300" %></div>
     </div>
-    <div class="col"><%= image_tag 'top5.png', size: "400x300" %></div>
-  </div>
-  <div class="row my-5">
-    <div class="col"><%= image_tag 'top11.png', size: "400x300" %></div>
-    <div class="col">
-      <p>
-        フォロー機能も活用して、たくさん交流をしてコミュニティーを広げていきましょう。
-      </p>
+    <div class="row py-5 text-center">
+      <div class="col-12 col-lg-7"><%= image_tag 'top5.png', size: "400x300" %></div>
+      <div class="col-2 d-lg-none"></div>
+      <div class="col-8 col-lg-5 pt-4">
+        <p class="sub-text text-left">
+          フォロー機能も活用して、たくさん交流をしてコミュニティーを広げていきましょう。
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="row my-5">
-    <div class="col">
-      <p>
-        積み立て投資シミュレーションや投資先診断も参考にして、資産設計のスタートに役に立てください
-      </p>
+    <div class="row py-5 text-center">
+      <div class="col-2 d-lg-none"></div>
+      <div class="col-8 col-lg-5 py-5">
+        <p class="sub-text text-left">
+          積み立て投資シミュレーションや投資先診断も参考にして、資産設計のスタートに役に立てください
+        </p>
+      </div>
+      <div class="col-12 col-lg-7"><%= image_tag 'top7.png', size: "400x300" %></div>
     </div>
-    <div class="col"><%= image_tag 'top14.png', size: "400x300" %></div>
-  </div>
-  <div class="row">
-    <div class="col-3"></div>
-    <div class="col-6 mt-5 text-center">
-      <p>
-        各々思い描く幸せは違うと思いますが、金融リテラシーを上げることにより金銭的不安、
-        時間的不安、精神的不安の解消に少しでもご活用していただければ幸いです。
-      </p>
+    <div class="row pt-5 text-center">
+      <div class="col-2 col-lg-4"></div>
+      <div class="col-8 col-lg-5 pt-4">
+        <p class="sub-text text-left">
+          各々思い描く幸せは違うと思いますが、金融リテラシーを上げることにより<span class="under">金銭的不安</span>、
+          <span class="under">時間的不安</span>、<span class="under">精神的不安</span>の解消に少しでもご活用していただければ幸いです。
+        </p>
+      </div>
     </div>
-    <div class="col-3"></div>
-  </div>
-  <div class="row my-5">
-    <div class="col-4"><%= image_tag 'top3.png', size: "300x200" %></div>
-    <div class="col-4"><%= image_tag 'top17.png', size: "300x200" %></div>
-    <div class="col-4"><%= image_tag 'top18.png', size: "300x200" %></div>
+    <div class="row py-5 text-center">
+      <div class="d-none d-sm-block col-lg-4 pb-5"><%= image_tag 'top3.png', size: "300x200" %></div>
+      <div class="d-none d-sm-block col-lg-4 pb-5"><%= image_tag 'top8.png', size: "300x200" %></div>
+      <div class="d-none d-sm-block col-lg-4 pb-5"><%= image_tag 'top9.png', size: "300x200" %></div>
+    </div>
   </div>
 </div>

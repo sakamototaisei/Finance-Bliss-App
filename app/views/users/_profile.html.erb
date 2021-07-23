@@ -1,19 +1,37 @@
 <div class="row">
-  <div class="col-4"><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "100x100" %></div>
-  <div class="col-4"><%= user.name %></div>
-  <% if @user.id == current_user.id %>
-    <div class="col-4"><%= link_to 'プロフィールの編集', edit_user_path(user.id), class: 'btn btn-primary' %></div>
+  <div class="col-4">
+    <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "100x100" %>
+  </div>
+  <div class="col-3"></div>
+  <% if user.id == current_user.id %>
+    <div class="col-4">
+      <%= link_to 'プロフィールの編集', edit_user_path(user.id), class: 'btn new-btn d-none d-lg-block' %>
+      <%= link_to '', edit_user_path(user.id), class: 'all-btn fas fa-user-edit fa-2x d-lg-none' %>
+    </div>
   <% else %>
     <div class="col-4">
       <% if current_user.following?(user) %>
-        <%= link_to "フォロー中", user_relationships_path(user.id), method: :delete, class: "btn btn-info" %>
-      <% else %>
-        <%= link_to "フォロー", user_relationships_path(user.id), method: :post, class: "btn btn-success" %>
+      <%= link_to user_relationships_path(user.id), class: 'btntextchange', method: :delete do %>
+        <span>フォロー中</span>
+        <span>フォロー解除</span>
       <% end %>
+    <% else %>
+      <%= link_to user_relationships_path(user.id), class: "follow-btn", method: :post do %>
+        <span>フォロー</span>
+        <span>フォローする</span>
+      <% end %>
+    <% end %>
     </div>
   <% end %>
 </div>
-<div class="row mt-3 mb-5"><%= user.introduction %></div>
+<div class="row">
+  <div class="col pt-2">
+    <h3><strong><%= user.name %></strong></h3>
+  </div>
+</div>
+<div class="row mt-3 mb-5">
+  <div class="col"><%= user.introduction %></div>
+</div>
 <div class="row mb-3">
   <div class="col follow-count">
     <%= link_to user_followings_path(user.id) do %>

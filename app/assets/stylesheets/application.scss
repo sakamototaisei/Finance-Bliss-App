@@ -22,3 +22,108 @@
   padding: 0;
   box-sizing: border-;
  }
+// フォントの行幅
+.text-height {
+  line-height: 1.7;
+}
+
+// 下線の装飾
+.under {
+  border-bottom: 3px solid #c41a30;
+}
+
+// フォント設定
+.font-family {
+    font-family: Hiragino Maru Gothic ProN W4;
+}
+
+// 英文字はみ出るのを防ぐ
+ body {
+  word-break: break-all;
+}
+.main-bg {
+  background-color: #f2f0e6;
+}
+
+// bootstrapのボタン
+.btn.new-btn {
+  background-color: #5b75a6;
+  color: #fff;
+}
+
+.btn.new-btn2 {
+  background-color: #f2f0e6;
+  color: #000;
+  border: 1px solid #000;
+}
+.btn.new-btn2:hover {
+  background-color: #5b75a6;
+  color: #fff;
+  border: 1px solid #5b75a6;
+}
+
+
+// フラッシュメッセージ
+.notice {
+  background-color: rgba(216, 219, 217, 0.4);
+  padding: 20px 0;
+}
+.success {
+  background-color: rgba(255, 255, 255, 1.0);
+  padding: 20px 0;
+}
+.alert {
+  background-color: rgba(255, 238, 125, 0.4);
+}
+
+
+ // footer
+ footer {
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+ }
+ .twitter {
+  color: #fff;
+ }
+ footer a:hover {
+  color: #00aeef;
+ }
+ .wrapper{
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 148px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+
+
+// トップタイトルの切り替え
+@media screen and (max-width: 670px) {
+  .top-title {
+    display: none;
+  }
+  .top-title2 {
+    /*要素の配置*/
+    position:absolute;
+    width: 100%;
+    text-align: center;
+    /*要素を天地中央寄せ*/
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    /*見た目の調整*/
+    color:#fff;
+    text-shadow: 0 0 15px #666;
+    font-size: 85px;
+    letter-spacing: 0.1em;
+  }
+}
+@media screen and (min-width: 670px) {
+  .top-title2 {
+    display: none;
+  }
+}

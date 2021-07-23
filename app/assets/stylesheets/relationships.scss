@@ -10,14 +10,14 @@ ul, li {
 }
 .follow-tabs {
   margin-top: 40px;
-  background-color: white;
+  background-color: #f2f0e6;
   overflow: hidden;
 }
 .follow-tabs li {
   float: left;
 }
 .follow-tabs li.active {
-  border-bottom: 2px solid #3ecdc6;
+  border-bottom: 2px solid #5b75a6;
 }
 .follow-tabs li.active a {
   color: #57575f;
@@ -25,5 +25,8 @@ ul, li {
 .follow-tabs a {
   display: inline-block;
   padding: 16px 30px;
+  color: #afb6bf;
+}
+.follow-tabs a:hover {
   color: #afb6bf;
 }
