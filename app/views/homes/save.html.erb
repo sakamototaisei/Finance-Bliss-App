@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container min-vh-100">
   <div class="row pt-5">
     <div class="col-2"></div>
     <div class="col-8 mb-2">
@@ -32,8 +32,13 @@
     </div>
   </div>
   <div class="row">
-    <div class="col text-center pb-5">
-      <%= link_to'もっと情報を知りたい方', new_user_session_path, class: 'btn new-btn' %>
+    <div class="col-2"></div>
+    <div class="col-4">
+      <%= link_to "戻る", root_path, class: "btn btn-outline-secondary btn-block" %>
     </div>
+    <div class="col-4 text-center pb-5">
+      <%= link_to'もっと情報を知りたい方', new_user_session_path, class: 'btn new-btn btn-block' %>
+    </div>
+     <div class="col-2"></div>
   </div>
 </div>

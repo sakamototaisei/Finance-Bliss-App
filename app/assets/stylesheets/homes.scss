@@ -118,8 +118,19 @@ video {
     color: #fff;
 }
 
+// 積立結果文字
+.result {
+    font-size: 45px;
+}
+
+
 
 // 投資診断
+// .マーカー装飾
+.under-line {
+    display: inline-block;
+    background: linear-gradient(transparent 50%, #5b75a6 100%);
+}
 .time-modal {
     display: none;
 }
@@ -150,6 +161,29 @@ video {
 .deposit-modal {
     display: none;
 }
+// 結果装飾
+.number-title {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem 2rem 1.5rem 130px;
+    word-break: break-all;
+    border-top: 3px solid #000;
+    border-radius: 12px 0 0 0;
+}
+.number-title span {
+    font-size: 40px;
+    font-size: 4rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    padding: 3px 20px;
+    color: #fff;
+    border-radius: 10px 0 20px 10px;
+    background: #000;
+}
+
 
 // メリットデメリットテーブル
 .table-header {
@@ -158,5 +192,12 @@ video {
 }
 
 
-
 // 投資診断結果ページ見出しレイアウト
+.investment-title:first-letter {
+    font-size: 150%;
+    color: #5b75a6;
+}
+.title-border {
+    display: inline-block;
+    border-bottom: 3px solid #000;
+}
