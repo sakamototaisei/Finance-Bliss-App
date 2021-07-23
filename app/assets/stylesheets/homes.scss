@@ -17,9 +17,9 @@ video {
     position: fixed;
     z-index: -1;/*最背面に設定*/
     top: 0;
-    right:0;
-    left:0;
-    bottom:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     overflow: hidden;
 }
 
@@ -43,7 +43,7 @@ video {
 /*見出し設定*/
 .top-title {
     /*要素の配置*/
-    position:absolute;
+    position: absolute;
     width: 100%;
     text-align: center;
     /*要素を天地中央寄せ*/
