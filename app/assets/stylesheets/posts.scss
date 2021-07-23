@@ -1,3 +1,136 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// 投稿の一覧の装飾
+.posts-bg {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 0 0 8px gray;
+  transition: .5s;
+}
+.posts-bg:hover {
+  transform: translateY(-6px);
+}
+
+
+// 投稿の文字色など
+.introduction {
+  word-break: break-word;
+}
+.introduction-link a {
+  color: #000;
+}
+.introduction-link a:hover {
+  color: #000;
+}
+.comment-link a {
+  color: #000;
+}
+.comment-link a:hover {
+  color: #000;
+}
+
+
+// サイドバーの装飾
+.box-shadow {
+  box-shadow: 0 0 6px gray;
+}
+
+
+// サイドバーの固定
+.sidebar {
+  height: 100px;
+  top: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.sidebar-comment {
+  height: 200px;
+  top: 100px;
+  position: -webkit-sticky;
+  position: sticky;
+}
+/*========= ページトップのためのCSS ===============*/
+/*リンクの形状*/
+#page-top a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #5b75a6;
+  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.6rem;
+  transition: all 0.3s;
+}
+
+#page-top a:hover{
+  background: #777;
+}
+
+/*リンクを右下に固定*/
+#page-top {
+  position: fixed;
+  right: 10px;
+  z-index: 2;
+    /*はじめは非表示*/
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+/*　上に上がる動き　*/
+#page-top.UpMove{
+  animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+/*　下に下がる動き　*/
+#page-top.DownMove{
+  animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+  from {
+    opacity: 1;
+  transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+  transform: translateY(100px);
+  }
+}
+
+// ゴミ箱btn編集btn戻るbtn
+.all-btn {
+  color: #333;
+}
+.all-btn:hover {
+  color: #333;
+}
+
+// 画像アップロードボタン
+.image-up-none {
+  display: none;
+}
+
+
+// コメントモーダル表示
+.hide-area{
+	display: none;
+}

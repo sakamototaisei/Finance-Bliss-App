@@ -1,15 +1,24 @@
-<div class="container">
+<div class="container font-family min-vh-100">
   <div class="row">
-    <div class="col my-5 text-center">
-      <%= @result %><span>万円</span>
+    <div class="col pt-5 text-center">
+      <h3>70歳までに3000万の資金を準備するには</h3>
     </div>
   </div>
-  <div class="row text-center my-5">
-    <div class="col"><%= link_to'想像より低かった', new_user_registration_path, class: 'btn btn-primary' %></div>
-    <div class="col"><%= link_to'高くて厳しい', save_path, class: 'btn btn-primary' %></div>
+  <div class="row">
+    <div class="col py-5 text-center">
+      <% if @result != 0 %>
+        <h3>毎月<strong><span class="result"><%= @result.ceil %>円</span></strong> 積み立てていけば達成できます</h3>
+      <% else %>
+        <h3>【正しく入力していないか、条件を確認してください】</h3>
+      <% end %>
+    </div>
+  </div>
+  <div class="row text-center py-5">
+    <div class="col"><%= link_to'想像より低かった', new_user_registration_path, class: 'btn btn-outline-dark btn-block' %></div>
+    <div class="col"><%= link_to'高くて厳しい', save_path, class: 'btn btn-outline-dark btn-block' %></div>
   </div>
   <div class="row">
-    <div class="col my-5">
+    <div class="col py-5">
       <p>※将来的に現役の年齢が延び70歳と仮定・2000万問題と言われていますがこの先さらに必要な額が見込まれることを仮定し3000万・インデックスファンド年利5%を想定し減債基金係数を使って計算しています。</p>
     </div>
   </div>

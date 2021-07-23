@@ -1,24 +1,29 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :desc)
   end
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   def edit
     @user = User.find(params[:id])
+    if @user.id != current_user.id
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:notice] = "プロフィールの内容を変更しました"
+      flash[:success] = "プロフィールの内容を変更しました"
       redirect_to user_path(@user.id)
     else
+      @user = User.find(params[:id])
+      flash.now[:alert] = "正しく情報を入力してください"
       render :edit
     end
   end

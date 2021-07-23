@@ -4,7 +4,8 @@ class HomesController < ApplicationController
   end
 
   def answer
-    @result = Home.accumulation(@age)
+    @age = params[:age]
+    @result = Home.accumulation(@age.to_i)
   end
 
   def about
@@ -34,7 +35,7 @@ class HomesController < ApplicationController
   private
 
   def age_params
-    params.require(:home).permit(:age)
+    params.permit(:age)
   end
 
 end

@@ -1,12 +1,21 @@
-<% post.post_comments.each do |post_comment| %>
-  <div class="row my-4">
+<div class="col">
+<% post.post_comments.reverse.each do |post_comment| %>
+  <div class="row py-4">
     <div class="col-2"><%= attachment_image_tag post_comment.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %></div>
     <div class="col-8">
-      <div class="row"><%= post_comment.user.name %></div>
-      <div class="row"><%= post_comment.comment %></div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10 col-sm-5"><h6><strong><%= post_comment.user.name %></strong></h6></div>
+        <div class="col-5 d-none d-sm-block"><%= post.created_at.strftime('%Y/%m/%d') %></div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10"><%= post_comment.comment %></div>
+      </div>
     </div>
     <% if post_comment.user == current_user %>
-    <div class="col-2"><%= link_to '', post_post_comment_path(post_comment.post, post_comment), class: 'fas fa-trash-alt fa-2x', method: :delete, remote: true %></div>
+    <div class="col-1"><%= link_to '', post_post_comment_path(post_comment.post, post_comment), class: 'all-btn fas fa-trash-alt fa-lg', method: :delete, remote: true %></div>
     <% end %>
   </div>
 <% end %>
+</div>

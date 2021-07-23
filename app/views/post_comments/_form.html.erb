@@ -1,8 +1,9 @@
-<div class="col-3"></div>
-<%= form_with model:[post, post_comment] do |f| %>
-<div class="col-6">
-  <%= f.text_area :comment, size: "30x5", placeholder: "コメントをここに" %>
-  <%= f.submit "送信", class: 'btn btn-primary' %>
+<div class="row sidebar-comment">
+  <div class="col-12">
+  (最大300文字数)<br>
+  <%= form_with model:[post, post_comment] do |f| %>
+    <%= f.text_area :comment, size: "30x5", placeholder: "コメントをここに" %><br>
+    <%= f.submit "送信", class: 'btn new-btn' %>
+  <% end %>
+  </div>
 </div>
-<% end %>
-<div class="col-3"></div>
