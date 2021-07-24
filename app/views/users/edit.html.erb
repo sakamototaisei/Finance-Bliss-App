@@ -3,7 +3,7 @@
     <%= form_with model: @user, local:true do |f| %>
     <div class="col">
       <div class="row">
-        <div class="col-3"><%= link_to '', user_path(@user.id), class: 'all-btn fas fa-times fa-2x' %></div>
+        <div class="col-3 pb-4"><%= link_to '', user_path(@user.id), class: 'all-btn fas fa-times fa-3x' %></div>
         <div class="col-6"><h4>プロフィールを編集</h4></div>
         <div class="col-3"><%= f.submit '保存', class: 'btn new-btn' %></div>
       </div>

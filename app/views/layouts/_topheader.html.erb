@@ -23,6 +23,7 @@
   <h1 class="top-title">Finance Bliss App.</h1>
   <h1 class="top-title2">FBA.</h1>
   <div id="video-area">
-    <video id="bg-video" src="public/assets/pf.mp4" poster="" webkit-playsinline playsinline muted autoplay loop></video>
+    <!--<video id="bg-video" src="/videos/pf.mp4" poster="" webkit-playsinline playsinline muted autoplay loop></video>-->
+    <%= video_tag("/videos/pf.mp4", id: "bg-video", autoplay: true, loop: true, muted: true, width: "100vw", height: "100vh") %>
   </div>
 </header>
