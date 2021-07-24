@@ -14,7 +14,7 @@
         <% else %>
           <li><%= link_to 'About', about_path, class: 'nav-link text-light' %></li>
           <li><%= link_to 'Investment', investment_path, class: 'nav-link text-light' %></li>
-          <li><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-light', data: {"turbolinks": false} %></li>
           <li><%= link_to 'Log in', new_user_session_path, class: 'nav-link text-light' %></li>
         <% end %>
         </ul>
