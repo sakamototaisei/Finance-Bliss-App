@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-100.times do |n|
+20.times do |n|
   gimei = Gimei.unique.name
   email = "test-#{n+1}@test.com"
   password = "password"
