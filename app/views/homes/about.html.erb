@@ -1,61 +1,56 @@
-<!--プロフィールのレイアウト-->
-<div class="about-profile">
-  <div class="container-fulid">
-    <div class="space"></div>
-    <div class="sub-space"></div>
-    <div class="row pl-5">
-      <div class="col-8">
-        <div id="title-box">
-          <h1 class="profile-title d-none d-lg-block"><span>About</span></h1>
-          <h1 class="subtitle d-none d-lg-block"><span>About Me</span></h1>
-        </div>
+<!--サブタイトル-->
+<div class="about-subtitle">
+  <div class="container">
+    <div class="row">
+      <div class="col-1 col-lg-2 d-flex align-items-center">
+        <h3 class="vertical-text d-none d-lg-block">ABOUT US</h3>
       </div>
-      <div class="col-4"></div>
-    </div>
-    <div class="row about-height">
-    </div>
-    <div class="row pl-5">
-      <div class="col-6"></div>
-      <div class="col d-none d-lg-block">
-        <h1>SAKATAI</h1>
-      </div>
-    </div>
-    <div class="row pl-5">
-      <div class="col-6"></div>
-      <div class="col-5 d-none d-lg-block">
-        <h3>メッセージ</h3>
-        <p class="text-height">
-          現在コロナの影響もあり今若者のなかで【投資】というワードをよく耳にします。投資に興味を持つことはいいことだと思いますが、
-          お金の知識がない若者を中心に詐欺被害の声もそも分多く耳にします。
-          ちゃんとした正しい知識を備えていなければ大きな損失を抱えることになる理解しなければなりません。正しくお金についての知識を
-          つけることによって<span class="under">今見えている世界が変わるはずです。</span>お金に対して余裕が生まれ、精神的に余裕ができ、最終的には時間的余裕にもつながっていきます。
-          このアプリを通じて皆さんと一緒に金融リテラシーを高め自分の想い描く未来に近づいていければという思いを込めて作りました。
+      <div class="col-10 col-lg-8 text-center app-info">
+        <h3 class="pb-5">金融リテラシーを身につけ幸せな未来を。</h3>
+        <p class="sub-text pb-5">
+          老後資金2000万円不足問題の解決のために正しくお金の知識を身につけ<br>
+          早いうちから将来に備え資産設計を行い準備していれば、決して難しい<br>
+          金額ではないことをFBAを通じて皆さんに伝えたいと考えています。
         </p>
-        <%= link_to "", "https://twitter.com/sakatai_photo", class: "fab fa-twitter-square fa-2x all-btn" %>
-        <%= link_to "", "https://www.instagram.com/sakatai_nano/", class: "fab fa-instagram fa-2x all-btn" %>
-        <%= link_to "", "https://www.youtube.com/channel/UCG64l7XRovB-_Fah8mq3HZw", class: "fab fa-youtube fa-2x all-btn" %>
       </div>
     </div>
   </div>
 </div>
-<!--サブタイトル-->
-<div class="about-subtitle">
-  <div class="container">
-    <div class="row py-5">
-      <div class="col-2 d-flex align-items-center">
-        <h3 class="vertical-text d-none d-md-block">ABOUT US</h3>
+<!--about-me-->
+<div class="container-fulid about-me">
+  <div class="row pl-5">
+    <div class="col-8">
+      <div id="title-box">
+        <h1 class="profile-title"><span>About</span></h1>
+        <h1 class="subtitle"><span>About Me</span></h1>
       </div>
-      <div class="col-8 text-center">
-        <h3 class="pb-5">金融リテラシーを身につけ幸せな未来を。</h3>
-        <p class="sub-text pb-5">
-          老後資金2000万円不足問題の解決のために正しくお金の知識を身につけ<br>
-          早いうちから将来に備え資産設計を行い準備していれば、<br>
-          決して難しい金額ではないことをFBAを通じて皆さんに伝えたいと考えています。
-        </p>
-      </div>
-      <div class="col-2"></div>
+    </div>
+    <div class="col-4"></div>
+  </div>
+  <div class="row pl-5">
+    <div class="col-4"></div>
+    <div class="col">
+      <h1>SAKATAI</h1>
     </div>
   </div>
+  <div class="row pl-5">
+    <div class="col-4"></div>
+    <div class="col-7 pb-4 app-info">
+      <p class="text-height">
+        現在コロナの影響もあり今若者のなかで【投資】というワードをよく耳にします。投資に興味を持つことはいいことだと思いますが、
+        お金の知識がない若者を中心に詐欺被害の声もそも分多く耳にします。
+        ちゃんとした正しい知識を備えていなければ大きな損失を抱えることになる理解しなければなりません。正しくお金についての知識を
+        つけることによって<span class="under">今見えている世界が変わるはずです。</span>お金に対して余裕が生まれ、精神的に余裕ができ、最終的には時間的余裕にもつながっていきます。
+        このアプリを通じて皆さんと一緒に金融リテラシーを高め自分の想い描く未来に近づいていければという思いを込めて作りました。
+      </p>
+      <%= link_to "", "https://twitter.com/sakatai_photo", class: "fab fa-twitter-square fa-2x all-btn" %>
+      <%= link_to "", "https://www.instagram.com/sakatai_nano/", class: "fab fa-instagram fa-2x all-btn" %>
+      <%= link_to "", "https://www.youtube.com/channel/UCG64l7XRovB-_Fah8mq3HZw", class: "fab fa-youtube fa-2x all-btn" %>
+    </div>
+  </div>
+</div>
+<!--プロフィールのレイアウト-->
+<div class="about-profile">
 </div>
   <!--お問い合わせフォーム-->
 <div class="about-form">
