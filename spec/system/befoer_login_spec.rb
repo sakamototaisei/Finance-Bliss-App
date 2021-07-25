@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-
 describe "ログイン前のテスト" do
   describe "トップページのテスト" do
     before do
       visit root_path
     end
+
     context "表示内容の確認" do
       it "URLが正しい" do
         expect(current_path).to eq "/"
@@ -30,11 +30,11 @@ describe "ログイン前のテスト" do
       end
     end
 
-
     describe "Aboutページのテスト" do
       before do
         visit about_path
       end
+
       context "表示の内容の確認" do
         it "URが正しいか" do
           expect(current_path).to eq "/about"
@@ -42,11 +42,11 @@ describe "ログイン前のテスト" do
       end
     end
 
-
     describe "ユーザーの新規登録テスト" do
       before do
         visit new_user_registration_path
       end
+
       context "表示内容の確認" do
         it "URLが正しい" do
           expect(current_path).to eq "/users/sign_up"
@@ -81,6 +81,7 @@ describe "ログイン前のテスト" do
           fill_in "user[password]", with: "password"
           fill_in "user[password_confirmation]", with: "password"
         end
+
         it "正しく登録されている" do
           expect { click_button "登録する" }.to change(User.all, :count).by(1)
         end
@@ -91,13 +92,13 @@ describe "ログイン前のテスト" do
       end
     end
 
-
     describe "ユーザーログインのテスト" do
       let(:user) { create(:user) }
 
       before do
         visit new_user_session_path
       end
+
       context "表示内容の確認" do
         it "URLが正しい" do
           expect(current_path).to eq "/users/sign_in"
@@ -128,6 +129,7 @@ describe "ログイン前のテスト" do
           fill_in "user[password]", with: user.password
           click_button "ログイン"
         end
+
         it "ログイン後のリダイレクト先が、ログインしたユーザーのプロフィールページになっている" do
           expect(current_path).to eq "/users/" + user.id.to_s
         end
@@ -139,12 +141,12 @@ describe "ログイン前のテスト" do
           fill_in "user[password]", with: ""
           click_button "ログイン"
         end
+
         it "ログインに失敗したらまたログイン画面にリダイレクトされる" do
           expect(current_path).to eq "/users/sign_in"
         end
       end
     end
-
 
     describe "ログアウトのテスト" do
       let(:user) { create(:user) }
@@ -167,11 +169,10 @@ describe "ログイン前のテスト" do
           expect(current_path).to eq "/"
         end
         it "ログアウト後のリダイレクト先にInvestmentのリンクが表示されている" do
-        expect(page).to have_link "Investment", href: investment_path
+          expect(page).to have_link "Investment", href: investment_path
         end
       end
     end
-
 
     describe "ヘッダーのテスト: ログインしているとき" do
       let(:user) { create(:user) }
@@ -182,6 +183,7 @@ describe "ログイン前のテスト" do
         fill_in "user[password]", with: user.password
         click_button "ログイン"
       end
+
       context "ヘッダーの表示内容の確認" do
         it "FBAのロゴまたはただのテキストのFBAのトップページへのリンクが表示される" do
           expect(page).to have_link "", href: root_path

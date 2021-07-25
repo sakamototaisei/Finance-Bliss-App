@@ -1,5 +1,4 @@
 class HomesController < ApplicationController
-
   def top
   end
 
@@ -37,5 +36,4 @@ class HomesController < ApplicationController
   def age_params
     params.permit(:age)
   end
-
 end

@@ -16,11 +16,10 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   # 自分がフォローしている人一覧で返す
   has_many :followings, through: :relationships, source: :followed
-  
+
   validates :name, presence: true
   validates :name, length: { maximum: 20 }
   validates :introduction, length: { maximum: 160 }
-
 
   def follow(user_id)
     relationships.create(followed_id: user_id)
@@ -29,6 +28,7 @@ class User < ApplicationRecord
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
+
   # 引数にわたしたユーザーをフォローしているか判定
   def following?(user)
     followings.include?(user)

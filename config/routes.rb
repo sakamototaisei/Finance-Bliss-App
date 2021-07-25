@@ -25,6 +25,4 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
-
-
 end

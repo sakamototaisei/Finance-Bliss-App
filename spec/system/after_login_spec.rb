@@ -5,16 +5,19 @@ describe "ログイン後のテスト" do
   let!(:user2) { create(:user) }
   let!(:post) { create(:post, user: user) }
   let!(:post2) { create(:post, user: user2) }
+
   before do
     visit new_user_session_path
     fill_in "user[email]", with: user.email
     fill_in "user[password]", with: user.password
     click_button "ログイン"
   end
+
   describe "新規投稿のフォーム表示のテスト" do
     before do
       visit new_post_path
     end
+
     context "表示内容の確認" do
       it "URLが正しい" do
         expect(current_path).to eq "/posts/new"
@@ -31,17 +34,18 @@ describe "ログイン後のテスト" do
       before do
         fill_in "post[introduction]", with: Faker::Lorem.characters(number: 100)
       end
+
       it "自分の投稿が正しく保存されている" do
         expect { click_button "投稿" }.to change(user.posts, :count).by(1)
       end
     end
   end
 
-
   describe "投稿一覧ページ表示のテスト" do
     before do
       visit posts_path
     end
+
     context "表示内容の確認" do
       it "URLが正しい" do
         expect(current_path).to eq "/posts"
@@ -79,11 +83,11 @@ describe "ログイン後のテスト" do
     end
   end
 
-
   describe "自分の投稿詳細ページ表示のテスト" do
     before do
       visit post_path(post)
     end
+
     context "表示内容の確認" do
       it "URLが正しい" do
         expect(current_path).to eq "/posts/" + post.id.to_s
@@ -124,11 +128,11 @@ describe "ログイン後のテスト" do
     end
   end
 
-
   describe "ユーザ一覧ページ表示のテスト" do
     before do
       visit users_path
     end
+
     context "表示内容の確認" do
       it "URLが正しい" do
         expect(current_path).to eq "/users"
@@ -162,11 +166,11 @@ describe "ログイン後のテスト" do
     end
   end
 
-
   describe "自分のプロフィールページの表示のテスト" do
     before do
       visit user_path(user)
     end
+
     context "表示内容の確認" do
       it "URLが正しい" do
         expect(current_path).to eq "/users/" + user.id.to_s
@@ -211,11 +215,11 @@ describe "ログイン後のテスト" do
     end
   end
 
-
   describe "投稿の編集ページ表示のテスト" do
     before do
       visit edit_post_path(post)
     end
+
     context "表示内容の確認" do
       it "URLが正しい" do
         expect(current_path).to eq '/posts/' + post.id.to_s + '/edit'
@@ -237,6 +241,7 @@ describe "ログイン後のテスト" do
         fill_in "post[introduction]", with: Faker::Lorem.characters(number: 100)
         click_button "保存"
       end
+
       it "introductionが正しく保存されている" do
         expect(post.reload.introduction).not_to eq @post_old_introduction
       end
@@ -247,11 +252,11 @@ describe "ログイン後のテスト" do
     end
   end
 
-
   describe "ユーザーの編集ページ表示のテスト" do
     before do
       visit edit_user_path(user)
     end
+
     context "表示内容の確認" do
       it "URLが正しい" do
         expect(current_path).to eq "/users/" + user.id.to_s + "/edit"
@@ -275,6 +280,7 @@ describe "ログイン後のテスト" do
         fill_in "user[introduction]", with: Faker::Lorem.characters(number: 100)
         click_button "保存"
       end
+
       it "nameが正しく保存されているか" do
         expect(user.reload.name).not_to eq @user_old_name
       end
@@ -287,11 +293,11 @@ describe "ログイン後のテスト" do
     end
   end
 
-
   describe "投資先診断の表示のテスト" do
     before do
       visit investment_path
     end
+
     context "表示内容の確認" do
       it "投資信託(国内外株式)の特徴や情報リンクボタンの表示" do
         expect(page).to have_link "特徴や情報", href: trust_path
