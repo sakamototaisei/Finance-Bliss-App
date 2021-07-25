@@ -1,7 +1,11 @@
 <div class="container min-vh-100 app-info">
   <div class="row pt-5">
-    <div class="col-2"></div>
-    <div class="col-8 mb-2">
+    <div class="col">
+      <h1>まずは投資に回せる余剰金を作れるよう意識してみましょう！</h1>
+    </div>
+  </div>
+  <div class="row pt-5">
+    <div class="col-10 col-lg-6 mb-2">
       <p>下記の10項目の中で当てはまるものにチェックしてください</p>
       <form>
       <p id="checkList">
@@ -19,27 +23,28 @@
       <div class="total"></div>
       </form>
     </div>
-    <div class="col-2"></div>
-  </div>
-  <div class="row">
-    <div class="col text-center py-4">
-      <h2><strong>チェックが7個以上でお金を貯められるタイプです</strong></h2>
+    <div class="col-1"></div>
+    <div class="col-12 col-lg-5  py-4">
+      <div class="row">
+        <div class="col">
+          <h2><strong>チェックが7個以上でお金を貯められるタイプです</strong></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 pt-5">
+          <%= link_to "戻る", root_path, class: "btn btn-outline-secondary btn-block" %>
+        </div>
+        <div class="col-12 pt-3">
+          <%= link_to'もっと情報を知りたい方', new_user_session_path, class: 'btn new-btn btn-block' %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-2"></div>
-    <div class="col-8">
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-8">
       <p>こちらの項目は貯蓄を増やしていくための有効な心がけやテクニックともなります。貯蓄ができなくて悩んでいる方は、できていない項目を確認をして実行してみましょう！</p>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-4">
-      <%= link_to "戻る", root_path, class: "btn btn-outline-secondary btn-block" %>
-    </div>
-    <div class="col-4 text-center pb-5">
-      <%= link_to'もっと情報を知りたい方', new_user_session_path, class: 'btn new-btn btn-block' %>
-    </div>
-     <div class="col-2"></div>
   </div>
 </div>
