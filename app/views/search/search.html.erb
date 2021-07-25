@@ -8,13 +8,13 @@
       </div>
     </div>
     <div class="col-9 col-lg-6">
+    <% if @model == "user" %>
       <div class="row pb-4">
         <div class="col">
           <% new_users = @datas.count - 1 %>
           <h3><%= new_users %>名のユーザーと繋がりましょう！</h3>
         </div>
       </div>
-    <% if @model == "user" %>
     <% @datas.each do |user| %>
       <div class="row">
         <div class="col-12 col-sm-2">
