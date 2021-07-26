@@ -22,8 +22,10 @@
   </nav>
   <h1 class="top-title d-none d-lg-block">Finance Bliss App.</h1>
   <h1 class="top-title2 d-lg-none">FBA</h1>
-  <div id="video-area">
-    <!--<video id="bg-video" src="/videos/pf.mp4" poster="" webkit-playsinline playsinline muted autoplay loop></video>-->
+  <div id="video-area" class="d-none d-lg-block">
     <%= video_tag("/videos/pf.mp4", id: "bg-video", autoplay: true, loop: true, muted: true, width: "100vw", height: "100vh") %>
+  </div>
+  <div id="image-area" class="d-lg-none">
+    <%= image_tag 'header-top2-origin.png', id: "bg-image", width: "100vw", height: "100vh" %>
   </div>
 </header>
