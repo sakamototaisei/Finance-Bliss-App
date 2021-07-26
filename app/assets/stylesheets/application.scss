@@ -76,6 +76,17 @@
   background-color: rgba(255, 238, 125, 0.4);
 }
 
+// header
+.header-logo {
+  font-size: 40px;
+}
+.nav-link {
+  font-size: 20px;
+  padding-left: 25px;
+}
+.navbar-toggler-icon {
+  font-size: 40px;
+}
 
  // footer
  footer {
@@ -102,28 +113,18 @@
 
 
 // トップタイトルの切り替え
-@media screen and (max-width: 670px) {
-  .top-title {
-    display: none;
-  }
-  .top-title2 {
-    /*要素の配置*/
-    position:absolute;
-    width: 100%;
-    text-align: center;
-    /*要素を天地中央寄せ*/
-    top: 50%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%);
-    /*見た目の調整*/
-    color:#fff;
-    text-shadow: 0 0 15px #666;
-    font-size: 85px;
-    letter-spacing: 0.1em;
-  }
-}
-@media screen and (min-width: 670px) {
-  .top-title2 {
-    display: none;
-  }
+.top-title2 {
+  /*要素の配置*/
+  position:absolute;
+  width: 100%;
+  text-align: center;
+  /*要素を天地中央寄せ*/
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  /*見た目の調整*/
+  color:#fff;
+  text-shadow: 0 0 15px #666;
+  font-size: 225px;
+  letter-spacing: 0.1em;
 }
