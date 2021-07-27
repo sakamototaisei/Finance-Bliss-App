@@ -30,6 +30,9 @@ class HomesController < ApplicationController
 
   def deposit
   end
+  
+  def coefficient
+  end
 
   private
 

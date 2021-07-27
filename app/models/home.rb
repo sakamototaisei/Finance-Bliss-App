@@ -125,8 +125,4 @@ class Home < ApplicationRecord
       0
     end
   end
-
-  # result = accumulation(24)
-
-  # puts result
 end

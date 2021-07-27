@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "asset", to: "homes#asset"
   get "nisa", to: "homes#nisa"
   get "deposit", to: "homes#deposit"
+  get "coefficient", to: "homes#coefficient"
 
   get "search", to: "search#search"
 

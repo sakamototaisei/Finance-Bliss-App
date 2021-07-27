@@ -1,0 +1,66 @@
+<div class="container min-vh-100">
+  <div class="row title pt-5">
+    <div class="col">
+      <h1>積立シミュレーションNEO</h1>
+    </div>
+  </div>
+  <div class="row info">
+    <div class="col-9  col-lg-6 pb-5">
+      <p>
+        より詳細に自分の資産設計を計画する際にぜひご利用ください<br>
+        各数値を入力して積立金額を確認してみましょう！
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <!-- 入力テキスト -->
+      <div class="row">
+        <div class="col">
+            <label>積立期間(年数)</label>
+          <div class="form-group col-5 col-lg-3">
+            <input type="number" id="years" name="name" class="form-control input-lg">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <label>年利</label>
+          <div class="form-group col-5 col-lg-3">
+            <input type="number" id="interest" name="name" class="form-control input-lg">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+            <label>目標金額(万単位)</label>
+          <div class="form-group col-5 col-lg-3">
+            <input type="number" id="money" name="name" class="form-control input-lg">
+          </div>
+        </div>
+      </div>
+
+      <!-- ボタン -->
+      <div class="row">
+        <div class="col pt-4 pb-5">
+          <button type="button" id="btnExec" class="btn btn-outline-dark btn-block">結果を見る</button>
+        </div>
+        <div class="col pt-4 pb-5">
+          <%= link_to '戻る', posts_path, class: 'btn btn-outline-dark btn-block' %>
+        </div>
+      </div>
+    </div>
+
+    <!-- 出力テキスト -->
+    <div class="col-12 col-lg-6">
+      <div class="row">
+        <div class="col">
+            <label><h2>毎月の積立金額</h2></label><br>
+          <div class="form-group col-6 col-lg-10">
+            <input type="number" id="result" name="name" value="" class="form-control input-lg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
