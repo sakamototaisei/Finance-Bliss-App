@@ -30,8 +30,11 @@ class HomesController < ApplicationController
 
   def deposit
   end
-  
+
   def coefficient
+  end
+
+  def quiz
   end
 
   private

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "nisa", to: "homes#nisa"
   get "deposit", to: "homes#deposit"
   get "coefficient", to: "homes#coefficient"
+  get "quiz", to: "homes#quiz"
 
   get "search", to: "search#search"
 

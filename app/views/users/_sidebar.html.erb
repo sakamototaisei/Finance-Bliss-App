@@ -1,30 +1,36 @@
 <div class="row">
-  <div class="col pb-4">
+  <div class="col pl-4 pb-4">
     <%= link_to 'ホーム', posts_path, class: 'd-none d-lg-block btn btn-outline-dark' %>
-    <%= link_to '', posts_path, class: 'all-btn fas fa-home fa-2x d-lg-none' %>
+    <%= link_to '', posts_path, class: 'all-btn fas fa-home fa-4x d-lg-none' %>
   </div>
 </div>
 <div class="row">
-  <div class="col pb-4">
+  <div class="col pl-4 pb-4">
     <%= link_to 'プロフィール', user_path(current_user), class: 'd-none d-lg-block btn btn-outline-dark' %>
-    <%= link_to '', user_path(current_user), class: 'all-btn fas fa-user fa-2x d-lg-none' %>
+    <%= link_to '', user_path(current_user), class: 'all-btn fas fa-user fa-4x d-lg-none' %>
   </div>
 </div>
 <div class="row">
-  <div class="col pb-4">
+  <div class="col pl-4 pb-4">
     <%= link_to '投資先診断', investment_path, class: 'd-none d-lg-block btn btn-outline-dark' %>
-    <%= link_to '', investment_path, class: 'all-btn fas fa-hand-holding-usd fa-2x d-lg-none' %>
+    <%= link_to '', investment_path, class: 'all-btn fas fa-hand-holding-usd fa-4x d-lg-none' %>
   </div>
 </div>
 <div class="row">
-  <div class="col pb-4">
+  <div class="col pl-4 pb-4">
+    <%= link_to '金融リテラシークイズ', quiz_path, class: 'd-none d-lg-block btn btn-outline-dark' %>
+    <%= link_to '', quiz_path, class: 'all-btn fas fa-file-invoice-dollar fa-4x d-lg-none' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col pl-4 pb-4">
     <%= link_to '積立シミュレーションNEO', coefficient_path, class: 'd-none d-lg-block btn btn-outline-dark' %>
-    <%= link_to '', coefficient_path, class: 'all-btn fas fa-search-dollar fa-2x d-lg-none' %>
+    <%= link_to '', coefficient_path, class: 'all-btn fas fa-search-dollar fa-4x d-lg-none' %>
   </div>
 </div>
 <div class="row">
-  <div class="col pb-4">
+  <div class="col pl-4 pb-4">
     <%= link_to '新規投稿', new_post_path, class: 'd-none d-lg-block btn new-btn' %>
-    <%= link_to '', new_post_path, class: 'all-btn fas fa-mail-bulk fa-2x d-lg-none' %>
+    <%= link_to '', new_post_path, class: 'all-btn fas fa-mail-bulk fa-4x d-lg-none' %>
   </div>
 </div>
