@@ -9,7 +9,8 @@ class Post < ApplicationRecord
   validates :image_or_introduction, presence: true
 
   def self.search_for(content)
-    Post.where("introduction LIKE ?", "%" + content + "%").or(Post.where(genre_id: content))
+    # Post.where("introduction LIKE ?", "%" + content + "%").or(Post.where(genre_id: content))
+    Post.where(introduction: content).or(Post.where(genre_id: content))
   end
 
   def image_or_introduction
