@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   def index
     @users = User.all.order(created_at: :desc)
+    @genres = Genre.all
   end
 
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.order(created_at: :desc)
+    @genres = Genre.all
   end
 
   def edit
@@ -30,6 +32,7 @@ class UsersController < ApplicationController
   def likes
     @user = User.find(params[:id])
     @likes = Like.where(user_id: @user.id)
+    @genres = Genre.all
   end
 
   private

@@ -18,11 +18,13 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
+    @genres = Genre.all
   end
 
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    @genres = Genre.all
   end
 
   def edit
@@ -53,6 +55,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:introduction, :image)
+    params.require(:post).permit(:introduction, :image, :genre_id)
   end
 end

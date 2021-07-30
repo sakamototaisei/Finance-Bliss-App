@@ -20,11 +20,16 @@
       </div>
       <div class="row">
         <div class="col-2"></div>
-        <div class="col-7">
+        <div class="col-2">
         <label>
           <i class="fas fa-image fa-3x"></i>
           <%= f.attachment_field :image, placeholder: "image", class: 'image-up-none' %>
         </label>
+        </div>
+        <div class="col-5">
+          <div class="form-group form-inline">
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, size: "30", class: "form-control" %>
+          </div>
         </div>
         <div class="col-3">
           <%= f.submit '投稿', class: 'btn new-btn' %>

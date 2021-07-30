@@ -4,6 +4,11 @@ class SearchController < ApplicationController
     @value = params["search"]["value"]    # 検索にかけた文字列(ここではvalue)を@valueに代入
     @how = params["search"]["how"]        # 選択した検索方法howを@howに代入
     @datas = search_for(@model, @value, @how) # search_forの引数にインスタンス変数を定義@datasに最終的な結果が入る
+    # ここでジャンルidを受け取る
+    @content = params["search"]["value"]
+    @records = Post.search_for(@content)
+
+    @genres = Genre.all
   end
 
   private

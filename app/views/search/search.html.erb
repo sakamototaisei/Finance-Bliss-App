@@ -9,12 +9,16 @@
     </div>
     <div class="col-9 col-lg-6">
     <% if @model == "user" %>
+      <% if @datas.empty? %>
+        <h2 class="text-center">該当する投稿はありません</h2>
+      <% else %>
       <div class="row pb-4">
         <div class="col">
           <% new_users = @datas.count - 1 %>
           <h3><%= new_users %>名のユーザーと繋がりましょう！</h3>
         </div>
       </div>
+      <% end %>
     <% @datas.each do |user| %>
       <div class="row">
         <div class="col-12 col-sm-2">
@@ -50,7 +54,50 @@
       <hr>
       <% end %>
     <% elsif @model == "post" %>
+      <% if @datas.empty? %>
+        <h2 class="text-center">該当する投稿はありません</h2>
+      <% end %>
       <% @datas.each do |post| %>
+      <div class="posts-bg mb-4">
+        <div class="row">
+          <div class="col-12 col-lg-2">
+            <%= link_to user_path(post.user.id) do %>
+            <%= attachment_image_tag post.user, :profile_image, :fill, 60, 60, class: "rounded-circle", fallback: "no_image.jpg", size: "50x50" %>
+            <% end %>
+          </div>
+          <div class="col-6 col-md-5"><h5><strong><%= post.user.name %></strong></h5></div>
+          <div class="col-6 col-md-4"><%= post.created_at.strftime('%Y/%m/%d') %></div>
+        </div>
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-10">
+            <%= link_to post_path(post.id) do %>
+            <%= attachment_image_tag post, :image, format:'jpg', width: '100%', height: '80%' %>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-10 py-4 introduction-link"><%= link_to post.introduction, post_path(post.id) %></div>
+        </div>
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-3 comment-link">
+            <%= link_to '', post_path(post.id), class: 'far fa-comment' %> <%= post.post_comments.count %>
+          </div>
+          <div class="col-3 like-btn<%= post.id %>">
+            <%= render partial: 'likes/like-btn', locals: {post: post} %>
+          </div>
+          <div class="col-3"></div>
+        </div>
+      </div>
+      <% end %>
+    <!--ジャンル検索された時の表示-->
+    <% else %>
+      <% if @records.empty? %>
+        <h2 class="text-center">該当する投稿はありません</h2>
+      <% end %>
+      <% @records.each do |post| %>
       <div class="posts-bg mb-4">
         <div class="row">
           <div class="col-12 col-lg-2">
@@ -88,7 +135,7 @@
     <% end %>
     </div>
     <div class="col-2 d-none d-lg-block">
-      <%= render 'search/searchbar' %>
+      <%= render 'search/searchbar', genres: @genres %>
     </div>
   </div>
 </div>
