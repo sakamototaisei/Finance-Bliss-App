@@ -19,3 +19,12 @@
     password_confirmation: password
     )
 end
+
+Genre.create!(name: "資産設計")
+Genre.create!(name: "保険")
+Genre.create!(name: "資産運用")
+Genre.create!(name: "税金")
+Genre.create!(name: "不動産")
+Genre.create!(name: "相続")
+Genre.create!(name: "質問")
+Genre.create!(name: "その他")
