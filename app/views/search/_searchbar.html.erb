@@ -11,7 +11,7 @@
     <ul class="list-group">
       <li class="list-group-item"><h5><strong>トレンドジャンル</strong></h5></li>
       <% genres.each do |genre| %>
-      <li class="list-group-item"><%= link_to genre.name, search_path("search[value]": genre) %></li>
+      <li class="list-group-item"><%= link_to genre.name, search_path("search[value]": genre.id) %></li>
       <% end %>
     </ul>
   </div>

@@ -19,7 +19,7 @@
         </div>
       </div>
       <% end %>
-    <% @datas.each do |user| %>
+    <% @datas.reverse.each do |user| %>
       <div class="row">
         <div class="col-12 col-sm-2">
           <%= link_to user_path(user.id) do %>
@@ -57,7 +57,7 @@
       <% if @datas.empty? %>
         <h2 class="text-center">該当する投稿はありません</h2>
       <% end %>
-      <% @datas.each do |post| %>
+      <% @datas.reverse.each do |post| %>
       <div class="posts-bg mb-4">
         <div class="row">
           <div class="col-12 col-lg-2">
@@ -97,7 +97,7 @@
       <% if @records.empty? %>
         <h2 class="text-center">該当する投稿はありません</h2>
       <% end %>
-      <% @records.each do |post| %>
+      <% @records.reverse.each do |post| %>
       <div class="posts-bg mb-4">
         <div class="row">
           <div class="col-12 col-lg-2">
