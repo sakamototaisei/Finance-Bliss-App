@@ -16,6 +16,7 @@
           <li><%= link_to 'Investment', investment_path, class: 'nav-link text-light' %></li>
           <li><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link text-light', data: {"turbolinks": false} %></li>
           <li><%= link_to 'Log in', new_user_session_path, class: 'nav-link text-light' %></li>
+          <li><%= link_to 'Guest login', users_guest_sign_in_path, class: 'nav-link text-light', method: :post %></li>
         <% end %>
         </ul>
       </div>
