@@ -59,5 +59,7 @@ https://docs.google.com/spreadsheets/d/1zNPDap7zr5tuffeYptwaD9JCnqKIrYFzWhbx32CL
 
 ## その他機能
 ー Twitterのような文の投稿や、画像の投稿が可能
+
 ー フォローや投稿へのいいね機能
+
 ー 投稿やユーザーの検索機能
