@@ -33,7 +33,7 @@ https://docs.google.com/spreadsheets/d/1zNPDap7zr5tuffeYptwaD9JCnqKIrYFzWhbx32CL
 
 ![image](https://user-images.githubusercontent.com/82428590/146746440-307889e1-f7d3-466c-aa35-1fd37c00c3e4.png)
 
-## 年齢を入力したら決まられた要件の結果を出力する
+## トップページをスクロールすると入力欄があり、年齢を入力したら決まられた要件の結果を出力する
 
 ![image](https://user-images.githubusercontent.com/82428590/146746993-06a8c451-8868-4587-8af9-712d4c3f4e87.png)
 ![image](https://user-images.githubusercontent.com/82428590/146747069-b9afd1e8-53ff-4785-8b5a-a9fc177599b9.png)
@@ -55,3 +55,9 @@ https://docs.google.com/spreadsheets/d/1zNPDap7zr5tuffeYptwaD9JCnqKIrYFzWhbx32CL
 ## 積み立て投資シュミレーションを期間や目標金額年利から月額の金額が返される
 
 ![image](https://user-images.githubusercontent.com/82428590/146865612-6084b76f-dd53-4c53-b545-718efe6596ee.png)
+
+
+## その他機能
+ー Twitterのような文の投稿や、画像の投稿が可能
+ー フォローや投稿へのいいね機能
+ー 投稿やユーザーの検索機能
